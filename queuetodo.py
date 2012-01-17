@@ -68,7 +68,7 @@ class queuetodo(object):
             "client_id=280195528701051&redirect_uri=http://dns-dig.net/signined", 303)
         
     @cherrypy.expose
-    def signined(self):
+    def signined(self, code=None, error_reason=None, error=None):
         return "Yo facebook!!!"
     
 
