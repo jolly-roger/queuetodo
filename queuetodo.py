@@ -1,10 +1,12 @@
 import cherrypy
 import os.path
 import psycopg2
+from http.cookies import SimpleCookie
 
 
 class queuetodo(object):
-    FACEBOOK_CODE = 'facebook_code'    
+    FACEBOOK_CODE = 'facebook_code'
+    DB_CONNECTION = 'dbname=queuetodo user=queuetodo password=6@,^K&=o'
     
     @cherrypy.expose
     def index(self):
@@ -12,21 +14,23 @@ class queuetodo(object):
         
         if len(cherrypy.request.cookie) > 0 and cherrypy.request.cookie[self.FACEBOOK_CODE]:
             menu += '&nbsp;<a href="/addtodo">add todo</a>' \
-                '&nbsp;<a href="/listtodo">list todo</a>'
+                '&nbsp;<a href="/listtodo">list todo</a>' \
+                '&nbsp;<a href="/logout">logout</a>'
+        else:
+            menu += '&nbsp;<a href="/signin">signin</a>' 
         
         return '''<html>
             <head>
             </head>
             <body>''' \
                 + menu + \
-                '''&nbsp;<a href="/signin">signin</a>
-            </body>
+                '''</body>
         </html>'''
     
     @cherrypy.expose
     def addtodo(self, todoname=None):        
         if not todoname == None:
-            conn = psycopg2.connect("dbname=queuetodo user=queuetodo password=6@,^K&=o")
+            conn = psycopg2.connect(self.DB_CONNECTION)
             cur = conn.cursor()
             cur.execute("insert into todo (name) values ('" + todoname + "');")
             conn.commit()
@@ -46,7 +50,7 @@ class queuetodo(object):
     
     @cherrypy.expose
     def listtodo(self):
-        conn = psycopg2.connect("dbname=queuetodo user=queuetodo password=6@,^K&=o")
+        conn = psycopg2.connect(self.DB_CONNECTION)
         cur = conn.cursor()
         cur.execute("select * from todo;")
         todos = cur.fetchall()
@@ -66,8 +70,10 @@ class queuetodo(object):
         </html>'''
         
     @cherrypy.expose
-    def signup(self):
-        pass
+    def logout(self):
+        cherrypy.response.cookie = SimpleCookie()
+        
+        raise cherrypy.HTTPRedirect("/", 303)
     
     @cherrypy.expose
     def signin(self):
