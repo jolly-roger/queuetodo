@@ -71,7 +71,7 @@ class queuetodo(object):
         
     @cherrypy.expose
     def logout(self):
-        cherrypy.response.cookie = SimpleCookie()
+        cherrypy.response.cookie[self.FACEBOOK_CODE]['expires'] = 0
         
         raise cherrypy.HTTPRedirect("/", 303)
     
