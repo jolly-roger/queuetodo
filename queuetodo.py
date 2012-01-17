@@ -63,7 +63,12 @@ class queuetodo(object):
     
     @cherrypy.expose
     def signin(self):
-        pass
+        raise cherrypy.HTTPRedirect("https://www.facebook.com/dialog/oauth?" \
+            "client_id=280195528701051&redirect_uri=http://dns-dig.net/singined", 303)
+        
+    @cherrypy.expose
+    def signined(self):
+        return "Yo facebook!!!"
     
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), 'queuetodo.conf')
