@@ -11,7 +11,8 @@ class queuetodo(object):
             </head>
             <body>
                 <a href="/addtodo">add todo</a>
-                <a href="/listtodo">list todo</a> 
+                <a href="/listtodo">list todo</a>
+                <a href="/signin">signin</a>
             </body>
         </html>'''
     
@@ -64,7 +65,7 @@ class queuetodo(object):
     @cherrypy.expose
     def signin(self):
         raise cherrypy.HTTPRedirect("https://www.facebook.com/dialog/oauth?" \
-            "client_id=280195528701051&redirect_uri=http://dns-dig.net/singined", 303)
+            "client_id=280195528701051&redirect_uri=http://dns-dig.net/signined", 303)
         
     @cherrypy.expose
     def signined(self):
