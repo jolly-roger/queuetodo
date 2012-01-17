@@ -4,15 +4,22 @@ import psycopg2
 
 
 class queuetodo(object):
+    FACEBOOK_CODE = 'facebook_code'    
+    
     @cherrypy.expose
     def index(self):
+        menu = ""
+        
+        if len(cherrypy.request.cookie) > 0 and cherrypy.request.cookie[self.FACEBOOK_CODE]:
+            menu += '''<a href="/addtodo">add todo</a>
+                <a href="/listtodo">list todo</a>'''
+        
         return '''<html>
             <head>
             </head>
-            <body>
-                <a href="/addtodo">add todo</a>
-                <a href="/listtodo">list todo</a>
-                <a href="/signin">signin</a>
+            <body>''' \
+                + menu + \
+                '''<a href="/signin">signin</a>
             </body>
         </html>'''
     
@@ -69,7 +76,12 @@ class queuetodo(object):
         
     @cherrypy.expose
     def signined(self, code=None, error_reason=None, error=None):
-        return "Yo facebook!!!"
+        if code:
+            cherrypy.response.cookie[self.FACEBOOK_CODE] = code
+            cherrypy.response.cookie[self.FACEBOOK_CODE]['domain'] = 'dns-dig.net'
+            cherrypy.response.cookie[self.FACEBOOK_CODE]['path'] = '/'
+            
+        raise cherrypy.HTTPRedirect("/", 303)
     
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), 'queuetodo.conf')
