@@ -18,7 +18,7 @@ class queuetodo(object):
     @cherrypy.expose
     def addtodo(self, todoname=None):        
         if not todoname == None:
-            conn = psycopg2.connect("dbname=queuetodo user=postgres password=q1w2e3r4")
+            conn = psycopg2.connect("dbname=queuetodo user=queuetodo password=6@,^K&=o")
             cur = conn.cursor()
             cur.execute("insert into todo (name) values ('" + todoname + "');")
             conn.commit()
@@ -38,7 +38,7 @@ class queuetodo(object):
     
     @cherrypy.expose
     def listtodo(self):
-        conn = psycopg2.connect("dbname=queuetodo user=postgres password=q1w2e3r4")
+        conn = psycopg2.connect("dbname=queuetodo user=queuetodo password=6@,^K&=o")
         cur = conn.cursor()
         cur.execute("select * from todo;")
         todos = cur.fetchall()
