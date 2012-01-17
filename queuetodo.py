@@ -11,15 +11,15 @@ class queuetodo(object):
         menu = ""
         
         if len(cherrypy.request.cookie) > 0 and cherrypy.request.cookie[self.FACEBOOK_CODE]:
-            menu += '''<a href="/addtodo">add todo</a>
-                <a href="/listtodo">list todo</a>'''
+            menu += '&nbsp;<a href="/addtodo">add todo</a>' \
+                '&nbsp;<a href="/listtodo">list todo</a>'
         
         return '''<html>
             <head>
             </head>
             <body>''' \
                 + menu + \
-                '''<a href="/signin">signin</a>
+                '''&nbsp;<a href="/signin">signin</a>
             </body>
         </html>'''
     
