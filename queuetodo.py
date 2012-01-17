@@ -95,7 +95,7 @@ class queuetodo(object):
             #cherrypy.response.cookie[self.FACEBOOK_CODE]['domain'] = 'dns-dig.net'
             #cherrypy.response.cookie[self.FACEBOOK_CODE]['path'] = '/'
             
-        #raise cherrypy.HTTPRedirect("/", 303)
+        raise cherrypy.InternalRedirect("/")
     
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), 'queuetodo.conf')
