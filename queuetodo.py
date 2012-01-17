@@ -72,6 +72,8 @@ class queuetodo(object):
     @cherrypy.expose
     def logout(self):
         cherrypy.response.cookie[self.FACEBOOK_CODE] = cherrypy.request.cookie[self.FACEBOOK_CODE]
+        #cherrypy.response.cookie[self.FACEBOOK_CODE]['domain'] = 'dns-dig.net'
+        #cherrypy.response.cookie[self.FACEBOOK_CODE]['path'] = '/'
         cherrypy.response.cookie[self.FACEBOOK_CODE]['expires'] = 0
         
         raise cherrypy.HTTPRedirect("/", 303)
@@ -85,8 +87,8 @@ class queuetodo(object):
     def signined(self, code=None, error_reason=None, error=None):
         if code:
             cherrypy.response.cookie[self.FACEBOOK_CODE] = code
-            cherrypy.response.cookie[self.FACEBOOK_CODE]['domain'] = 'dns-dig.net'
-            cherrypy.response.cookie[self.FACEBOOK_CODE]['path'] = '/'
+            #cherrypy.response.cookie[self.FACEBOOK_CODE]['domain'] = 'dns-dig.net'
+            #cherrypy.response.cookie[self.FACEBOOK_CODE]['path'] = '/'
             
         raise cherrypy.HTTPRedirect("/", 303)
     
