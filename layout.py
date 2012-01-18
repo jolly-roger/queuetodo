@@ -24,7 +24,7 @@ def getAddTodo():
             <head>
             </head>
             <body>''' \
-                + mainmenu.get() + \
+                + getMainMenu() + \
                 '''<form action="/addtodo" method="post">
                     <input type="text" name="todoname"/>
                     <input type="submit" value="Add"/>
@@ -42,7 +42,7 @@ def getListTodo(todos):
             <head>
             </head>
             <body>''' \
-                + mainmenu.get() + \
+                + getMainMenu() + \
                 '''<table>''' \
                 + todoslayout + \
                 '''</table>
