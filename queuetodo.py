@@ -76,12 +76,12 @@ class queuetodo(object):
         #cherrypy.response.cookie[self.FACEBOOK_CODE]['path'] = '/'
         cherrypy.response.cookie[self.FACEBOOK_CODE]['expires'] = 0
         
-        raise cherrypy.HTTPRedirect("/", 303)
+        raise cherrypy.HTTPRedirect("/")
     
     @cherrypy.expose
     def signin(self):
         raise cherrypy.HTTPRedirect("https://www.facebook.com/dialog/oauth?" \
-            "client_id=280195528701051&redirect_uri=http://dns-dig.net/signined", 303)
+            "client_id=280195528701051&redirect_uri=http://dns-dig.net/signined")
         
         
     #https://graph.facebook.com/oauth/access_token?
@@ -95,11 +95,7 @@ class queuetodo(object):
             #cherrypy.response.cookie[self.FACEBOOK_CODE]['domain'] = 'dns-dig.net'
             #cherrypy.response.cookie[self.FACEBOOK_CODE]['path'] = '/'
             
-        raise cherrypy.HTTPRedirect("/urlfragment#", 303)
-        
-    @cherrypy.expose
-    def urlfragment(self):
-        return "Url fragment"
+        raise cherrypy.HTTPRedirect("/#welcome")
     
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), 'queuetodo.conf')
