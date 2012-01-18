@@ -3,25 +3,17 @@ import os.path
 import psycopg2
 from http.cookies import SimpleCookie
 import constants
+import mainmenu
 
 
 class queuetodo(object):
     @cherrypy.expose
     def index(self):
-        menu = ""
-        
-        if len(cherrypy.request.cookie) > 0 and cherrypy.request.cookie[constants.FACEBOOK_CODE]:
-            menu += '&nbsp;<a href="/addtodo">add todo</a>' \
-                '&nbsp;<a href="/listtodo">list todo</a>' \
-                '&nbsp;<a href="/logout">logout</a>'
-        else:
-            menu += '&nbsp;<a href="/signin">signin</a>' 
-        
         return '''<html>
             <head>
             </head>
             <body>''' \
-                + menu + \
+                + mainmenu.get(cherrypy.request) + \
                 '''</body>
         </html>'''
     
@@ -38,8 +30,9 @@ class queuetodo(object):
         return '''<html>
             <head>
             </head>
-            <body>
-                <form action="/addtodo" method="post">
+            <body>''' \
+                + mainmenu.get(cherrypy.request) + \
+                '''<form action="/addtodo" method="post">
                     <input type="text" name="todoname"/>
                     <input type="submit" value="Add"/>
                 </form>
@@ -60,8 +53,9 @@ class queuetodo(object):
         return '''<html>
             <head>
             </head>
-            <body>
-                <table>''' \
+            <body>''' \
+                + mainmenu.get(cherrypy.request) + \
+                '''<table>''' \
                 + todoslayout + \
                 '''</table>
             </body>
@@ -70,8 +64,6 @@ class queuetodo(object):
     @cherrypy.expose
     def logout(self):
         cherrypy.response.cookie[constants.FACEBOOK_CODE] = cherrypy.request.cookie[constants.FACEBOOK_CODE]
-        #cherrypy.response.cookie[self.FACEBOOK_CODE]['domain'] = 'dns-dig.net'
-        #cherrypy.response.cookie[self.FACEBOOK_CODE]['path'] = '/'
         cherrypy.response.cookie[constants.FACEBOOK_CODE]['expires'] = 0
         
         raise cherrypy.HTTPRedirect("/")
@@ -90,8 +82,6 @@ class queuetodo(object):
     def signined(self, code=None, error_reason=None, error=None):
         if code:
             cherrypy.response.cookie[constants.FACEBOOK_CODE] = code
-            #cherrypy.response.cookie[self.FACEBOOK_CODE]['domain'] = 'dns-dig.net'
-            #cherrypy.response.cookie[self.FACEBOOK_CODE]['path'] = '/'
             
         raise cherrypy.HTTPRedirect("/#welcome")
     
