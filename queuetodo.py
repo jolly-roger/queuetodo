@@ -1,9 +1,9 @@
 import cherrypy
 import os.path
-import psycopg2
 from http.cookies import SimpleCookie
 import constants
 import mainmenu
+import dal
 
 
 class queuetodo(object):
@@ -20,12 +20,7 @@ class queuetodo(object):
     @cherrypy.expose
     def addtodo(self, todoname=None):        
         if not todoname == None:
-            conn = psycopg2.connect(constants.DB_CONNECTION)
-            cur = conn.cursor()
-            cur.execute("insert into todo (name) values ('" + todoname + "');")
-            conn.commit()
-            cur.close()
-            conn.close()
+            dal.addtodo(todoname)
         
         return '''<html>
             <head>
@@ -41,10 +36,7 @@ class queuetodo(object):
     
     @cherrypy.expose
     def listtodo(self):
-        conn = psycopg2.connect(constants.DB_CONNECTION)
-        cur = conn.cursor()
-        cur.execute("select * from todo;")
-        todos = cur.fetchall()
+        todos = dal.getlisttodo()
         todoslayout = ""
         
         for todo in todos:
