@@ -13,7 +13,7 @@ class queuetodo(object):
             <head>
             </head>
             <body>''' \
-                + mainmenu.get(cherrypy.request) + \
+                + mainmenu.get() + \
                 '''</body>
         </html>'''
     
@@ -26,7 +26,7 @@ class queuetodo(object):
             <head>
             </head>
             <body>''' \
-                + mainmenu.get(cherrypy.request) + \
+                + mainmenu.get() + \
                 '''<form action="/addtodo" method="post">
                     <input type="text" name="todoname"/>
                     <input type="submit" value="Add"/>
@@ -46,7 +46,7 @@ class queuetodo(object):
             <head>
             </head>
             <body>''' \
-                + mainmenu.get(cherrypy.request) + \
+                + mainmenu.get() + \
                 '''<table>''' \
                 + todoslayout + \
                 '''</table>
