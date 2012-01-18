@@ -2,56 +2,27 @@ import cherrypy
 import os.path
 from http.cookies import SimpleCookie
 import constants
-import mainmenu
 import dal
+import layout
 
 
 class queuetodo(object):
     @cherrypy.expose
     def index(self):
-        return '''<html>
-            <head>
-            </head>
-            <body>''' \
-                + mainmenu.get() + \
-                '''</body>
-        </html>'''
+        return layout.getIndex()
     
     @cherrypy.expose
     def addtodo(self, todoname=None):        
         if not todoname == None:
             dal.addtodo(todoname)
         
-        return '''<html>
-            <head>
-            </head>
-            <body>''' \
-                + mainmenu.get() + \
-                '''<form action="/addtodo" method="post">
-                    <input type="text" name="todoname"/>
-                    <input type="submit" value="Add"/>
-                </form>
-            </body>
-        </html>'''
+        return layout.getAddTodo()
     
     @cherrypy.expose
     def listtodo(self):
         todos = dal.getlisttodo()
-        todoslayout = ""
         
-        for todo in todos:
-            todoslayout += "<tr><td>" + todo[1] + "</td></tr>"
-        
-        return '''<html>
-            <head>
-            </head>
-            <body>''' \
-                + mainmenu.get() + \
-                '''<table>''' \
-                + todoslayout + \
-                '''</table>
-            </body>
-        </html>'''
+        return layout.getListTodo(todos)
         
     @cherrypy.expose
     def logout(self):
