@@ -1,9 +1,10 @@
-import constants
 import cherrypy
+
+from facebook import authorization
 
 
 def getMainMenu():
-    if len(cherrypy.request.cookie) > 0 and cherrypy.request.cookie[constants.FACEBOOK_CODE]:
+    if authorization.isAuthorized():
         return '&nbsp;<a href="/addtodo">add todo</a>' \
             '&nbsp;<a href="/listtodo">list todo</a>' \
             '&nbsp;<a href="/logout">logout</a>'
