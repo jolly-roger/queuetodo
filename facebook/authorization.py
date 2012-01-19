@@ -20,5 +20,5 @@ def isAuthorized():
     return (len(cherrypy.request.cookie) > 0 and cherrypy.request.cookie[FACEBOOK_CODE])
     
 def checkAuthorization():
-    if not authorization.isAuthorized():
+    if not isAuthorized():
         raise cherrypy.HTTPRedirect("/")
