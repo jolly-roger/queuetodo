@@ -17,7 +17,7 @@ def callbackHandler(code):
     cherrypy.response.cookie[FACEBOOK_CODE] = code
     
 def isAuthorized():
-    return (len(cherrypy.request.cookie) > 0 and cherrypy.request.cookie[FACEBOOK_CODE])
+    return bool(len(cherrypy.request.cookie) > 0 and cherrypy.request.cookie[FACEBOOK_CODE])
     
 def checkAuthorization():
     if not isAuthorized():

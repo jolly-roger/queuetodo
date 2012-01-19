@@ -32,8 +32,7 @@ class queuetodo(object):
     def logout(self):
         authorization.checkAuthorization()
         authorization.logout()
-        
-        return str(authorization.isAuthorized())
+        authorization.checkAuthorization()
     
     @cherrypy.expose
     def signin(self):
