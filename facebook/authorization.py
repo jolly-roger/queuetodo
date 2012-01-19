@@ -1,6 +1,5 @@
 import cherrypy
-
-from constants import APP_ID
+import constants
 
 
 FACEBOOK_CODE = 'facebook_code'
