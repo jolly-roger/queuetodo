@@ -1,6 +1,5 @@
 import cherrypy
-
-from constants import *
+from . import constants
 
 
 FACEBOOK_CODE = 'facebook_code'
@@ -12,7 +11,7 @@ def logout():
     
 def signin():
     raise cherrypy.HTTPRedirect("https://www.facebook.com/dialog/oauth?" \
-        "client_id=" + APP_ID + "&redirect_uri=" + CALLBACK_URL)
+        "client_id=" + constants.APP_ID + "&redirect_uri=" + CALLBACK_URL)
     
 def callbackHandler(code):
     cherrypy.response.cookie[FACEBOOK_CODE] = code
