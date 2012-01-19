@@ -32,7 +32,8 @@ class queuetodo(object):
     def logout(self):
         authorization.checkAuthorization()
         authorization.logout()
-        authorization.checkAuthorization()
+        
+        raise cherrypy.HTTPRedirect("/")
     
     @cherrypy.expose
     def signin(self):
