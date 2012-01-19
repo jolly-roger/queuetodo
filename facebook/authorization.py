@@ -1,5 +1,6 @@
 import cherrypy
-import constants
+
+from constants import *
 
 
 FACEBOOK_CODE = 'facebook_code'
