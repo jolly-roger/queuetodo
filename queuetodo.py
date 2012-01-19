@@ -4,6 +4,7 @@ import dal
 import layout
 
 from facebook import authorization
+from facebook import authentication
 
 
 class queuetodo(object):
@@ -31,23 +32,27 @@ class queuetodo(object):
     @cherrypy.expose
     def logout(self):
         authorization.checkAuthorization()
-        authorization.logout()
+        authorization.deauthorize()
+        authentication.deauthenticate()
         
         raise cherrypy.HTTPRedirect("/")
     
     @cherrypy.expose
     def signin(self):
-        authorization.signin();        
-        
-    #https://graph.facebook.com/oauth/access_token?
-    # client_id=YOUR_APP_ID&redirect_uri=YOUR_URL&
-    # client_secret=YOUR_APP_SECRET&code=THE_CODE_FROM_ABOVE        
-        
+        authorization.authorize();        
+
     @cherrypy.expose
-    def signincallback(self, code=None, error_reason=None, error=None):
+    def authorizecallback(self, code=None, error_reason=None, error=None):
         if code:
             authorization.callbackHandler(code)
-            
+        
+        authentication.authenticate() 
+        
+    @cherrypy.expose
+    def authenticatecallback(self, access_token=None, expires=None):
+        if access_token:
+            authentication.callbackHandler(access_token, expires)
+        
         raise cherrypy.HTTPRedirect("/#welcome")
     
 

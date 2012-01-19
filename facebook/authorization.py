@@ -1,23 +1,23 @@
 import cherrypy
+
 from . import constants
 
 
-FACEBOOK_CODE = 'facebook_code'
-CALLBACK_URL = "http://dns-dig.net/signincallback"
+CALLBACK_URL = "http://dns-dig.net/authorizecallback"
 
-def logout():
-    cherrypy.response.cookie[FACEBOOK_CODE] = cherrypy.request.cookie[FACEBOOK_CODE]
-    cherrypy.response.cookie[FACEBOOK_CODE]['expires'] = 0
+def deauthorize():
+    cherrypy.response.cookie[constants.FACEBOOK_CODE] = cherrypy.request.cookie[constants.FACEBOOK_CODE]
+    cherrypy.response.cookie[constants.FACEBOOK_CODE]['expires'] = 0
     
-def signin():
+def authorize():
     raise cherrypy.HTTPRedirect("https://www.facebook.com/dialog/oauth?" \
         "client_id=" + constants.APP_ID + "&redirect_uri=" + CALLBACK_URL)
     
 def callbackHandler(code):
-    cherrypy.response.cookie[FACEBOOK_CODE] = code
+    cherrypy.response.cookie[constants.FACEBOOK_CODE] = code
     
 def isAuthorized():
-    return bool(len(cherrypy.request.cookie) > 0 and cherrypy.request.cookie[FACEBOOK_CODE])
+    return bool(len(cherrypy.request.cookie) > 0 and cherrypy.request.cookie[constants.FACEBOOK_CODE])
     
 def checkAuthorization():
     if not isAuthorized():
