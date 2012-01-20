@@ -42,10 +42,15 @@ class queuetodo(object):
         authorization.authorize();        
 
     @cherrypy.expose
-    def authorizecallback(self, code=None, error_reason=None, error=None):
+    def authorizecallback(self, code=None, error_reason=None, error=None, access_token=None, expires=None):
         if code:
             authorization.callbackHandler(code)
-            authentication.authenticate(code) 
+            authentication.authenticate(code)
+        
+        if access_token:
+            authentication.callbackHandler(access_token, expires)
+            
+            raise cherrypy.HTTPRedirect("/#welcome")
         
     @cherrypy.expose
     def authenticatecallback(self, access_token=None, expires=None):
