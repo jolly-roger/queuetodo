@@ -1,5 +1,6 @@
 import cherrypy
 import urllib.request
+import urllib.parse
 
 from . import constants
 
@@ -16,7 +17,7 @@ def authenticate(code):
     #    "client_id=" + constants.APP_ID + "&redirect_uri=" + CALLBACK_URL + \
     #    "&client_secret=" + constants.APP_SECRET + "&code=" + code)
     
-    raw_access_data = str(urllib.request.openurl("https://graph.facebook.com/oauth/access_token?" \
+    raw_access_data = str(urllib.request.urlopen("https://graph.facebook.com/oauth/access_token?" \
         "client_id=" + constants.APP_ID + "&redirect_uri=" + CALLBACK_URL + \
         "&client_secret=" + constants.APP_SECRET + "&code=" + code), encoding="utf-8")
     
