@@ -43,7 +43,7 @@ class queuetodo(object):
 
     @cherrypy.expose
     def authorizecallback(self, code=None, error_reason=None, error=None, access_token=None, expires=None):
-        if code:
+        if authorization.isAuthorized():
             authorization.callbackHandler(code)
             authentication.authenticate(code)
         
