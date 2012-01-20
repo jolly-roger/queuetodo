@@ -24,7 +24,7 @@ def authenticate(code):
     access_data = urllib.parse.parse_qs(raw_access_data)
     
     cherrypy.response.cookie[constants.FACEBOOK_ACCESS_TOKEN] = access_data['access_token']
-    cherrypy.response.cookie[constants.FACEBOOK_ACCESS_TOKEN]['expires'] = access_token['expires']
+    cherrypy.response.cookie[constants.FACEBOOK_ACCESS_TOKEN]['expires'] = access_data['expires']
 
 
 
