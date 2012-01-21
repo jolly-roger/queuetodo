@@ -23,7 +23,7 @@ class queuetodo(object):
         return layout.getAddTodo()
     
     @cherrypy.expose
-    def listtodo(self):
+    def home(self):
         authorization.checkAuthorization()
         
         todos = dal.getlisttodo(user.getUserId())
@@ -48,7 +48,7 @@ class queuetodo(object):
             authorization.callbackHandler(code)
             authentication.authenticate(code)
             
-            raise cherrypy.HTTPRedirect("/#welcome")
+            raise cherrypy.HTTPRedirect("/home/#welcome")
     
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), 'queuetodo.conf')
