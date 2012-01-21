@@ -9,6 +9,8 @@ from . import user
 def deauthenticate():
     cherrypy.response.cookie[constants.FACEBOOK_ACCESS_TOKEN] = cherrypy.request.cookie[constants.FACEBOOK_ACCESS_TOKEN]
     cherrypy.response.cookie[constants.FACEBOOK_ACCESS_TOKEN]['expires'] = 0
+    
+    user.unloadUser()
 
 def authenticate(code):
     raw_access_data = str(urllib.request.urlopen("https://graph.facebook.com/oauth/access_token?" \
@@ -20,7 +22,7 @@ def authenticate(code):
     cherrypy.response.cookie[constants.FACEBOOK_ACCESS_TOKEN] = access_data['access_token'][0]
     cherrypy.response.cookie[constants.FACEBOOK_ACCESS_TOKEN]['expires'] = access_data['expires'][0]
     
-    user.loadUserId(access_data['access_token'][0])
+    user.loadUser(access_data['access_token'][0])
 
 
 
