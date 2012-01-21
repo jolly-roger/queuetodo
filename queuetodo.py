@@ -11,7 +11,14 @@ from facebook import user
 class queuetodo(object):
     @cherrypy.expose
     def index(self):
-        return layout.getIndex()
+        if not authorization.isAuthorized():
+            return layout.getIndex()
+        else:
+            authorization.checkAuthorization()
+        
+            todos = dal.getlisttodo(user.getUserId())
+        
+            return layout.getListTodo(todos)
     
     @cherrypy.expose
     def addtodo(self, todoname=None):
@@ -20,15 +27,7 @@ class queuetodo(object):
         if not todoname == None:
             dal.addtodo(user.getUserId(), todoname)
         
-        return layout.getAddTodo()
-    
-    @cherrypy.expose
-    def home(self):
-        authorization.checkAuthorization()
-        
-        todos = dal.getlisttodo(user.getUserId())
-        
-        return layout.getListTodo(todos)
+        return layout.getAddTodo()        
         
     @cherrypy.expose
     def logout(self):
@@ -48,7 +47,7 @@ class queuetodo(object):
             authorization.callbackHandler(code)
             authentication.authenticate(code)
             
-            raise cherrypy.HTTPRedirect("/home/#welcome")
+            raise cherrypy.HTTPRedirect("/#welcome")
     
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), 'queuetodo.conf')

@@ -5,7 +5,7 @@ from facebook import authorization
 
 def getMainMenu():
     if authorization.isAuthorized():
-        return '&nbsp;<a href="/home">home</a>' \
+        return '&nbsp;<a href="/">home</a>' \
             '&nbsp;<a href="/addtodo">add todo</a>' \
             '&nbsp;<a href="/logout">logout</a>'
     else:
