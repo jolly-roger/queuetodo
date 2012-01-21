@@ -5,6 +5,7 @@ import layout
 
 from facebook import authorization
 from facebook import authentication
+from facebook import user
 
 
 class queuetodo(object):
@@ -17,7 +18,7 @@ class queuetodo(object):
         authorization.checkAuthorization()
         
         if not todoname == None:
-            dal.addtodo(todoname)
+            dal.addtodo(user.getUserId(), todoname)
         
         return layout.getAddTodo()
     
@@ -25,7 +26,7 @@ class queuetodo(object):
     def listtodo(self):
         authorization.checkAuthorization()
         
-        todos = dal.getlisttodo()
+        todos = dal.getlisttodo(user.getUserId())
         
         return layout.getListTodo(todos)
         

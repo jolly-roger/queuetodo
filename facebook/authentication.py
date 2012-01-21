@@ -20,7 +20,7 @@ def authenticate(code):
     cherrypy.response.cookie[constants.FACEBOOK_ACCESS_TOKEN] = access_data['access_token'][0]
     cherrypy.response.cookie[constants.FACEBOOK_ACCESS_TOKEN]['expires'] = access_data['expires'][0]
     
-    user.getUserId(access_data['access_token'][0])
+    user.loadUserId(access_data['access_token'][0])
 
 
 
