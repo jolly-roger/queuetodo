@@ -3,15 +3,13 @@ import cherrypy
 from . import constants
 
 
-CALLBACK_URL = "http://dns-dig.net/authorizecallback"
-
 def deauthorize():
     cherrypy.response.cookie[constants.FACEBOOK_CODE] = cherrypy.request.cookie[constants.FACEBOOK_CODE]
     cherrypy.response.cookie[constants.FACEBOOK_CODE]['expires'] = 0
     
 def authorize():
     raise cherrypy.HTTPRedirect("https://www.facebook.com/dialog/oauth?" \
-        "client_id=" + constants.APP_ID + "&redirect_uri=" + CALLBACK_URL)
+        "client_id=" + constants.APP_ID + "&redirect_uri=" + constants.CALLBACK_URL)
     
 def callbackHandler(code):
     cherrypy.response.cookie[constants.FACEBOOK_CODE] = code
