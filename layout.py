@@ -40,7 +40,4 @@ def getListTodo(todos):
     for todo in todos:
         todoslayout += "<div>" + todo[1] + "</div>"
     
-    return HEADER \
-                + getMainMenu() + \
-                + todoslayout + \
-        FOOTER
+    return  HEADER + getMainMenu() + todoslayout + FOOTER
