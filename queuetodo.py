@@ -9,6 +9,7 @@ from facebook import user
 
 
 class queuetodo(object):
+    @cherrypy.tools.encoding(encoding='utf-8') 
     @cherrypy.expose
     def index(self):
         cherrypy.response.headers['Content-Type'] = "text/html; charset=utf-8" 
@@ -22,6 +23,7 @@ class queuetodo(object):
         
             return layout.getListTodo(todos)
     
+    @cherrypy.tools.encoding(encoding='utf-8') 
     @cherrypy.expose
     def addtodo(self, todoname=None):
         cherrypy.response.headers['Content-Type'] = "text/html; charset=utf-8" 
@@ -32,11 +34,13 @@ class queuetodo(object):
             dal.addtodo(user.getUserId(), todoname)
         
         return layout.getAddTodo()
-        
+    
+    @cherrypy.tools.encoding(encoding='utf-8')     
     @cherrypy.expose
     def comments(self, todoid):
         pass
-        
+    
+    @cherrypy.tools.encoding(encoding='utf-8')     
     @cherrypy.expose
     def logout(self):
         cherrypy.response.headers['Content-Type'] = "text/html; charset=utf-8" 
@@ -47,12 +51,14 @@ class queuetodo(object):
         
         raise cherrypy.HTTPRedirect("/")
     
+    @cherrypy.tools.encoding(encoding='utf-8') 
     @cherrypy.expose
     def signin(self):
         cherrypy.response.headers['Content-Type'] = "text/html; charset=utf-8" 
         
         authorization.authorize();        
 
+    @cherrypy.tools.encoding(encoding='utf-8') 
     @cherrypy.expose
     def authorizecallback(self, code=None, error_reason=None, error=None):
         cherrypy.response.headers['Content-Type'] = "text/html; charset=utf-8" 
