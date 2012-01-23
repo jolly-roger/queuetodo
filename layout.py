@@ -38,6 +38,6 @@ def getListTodo(todos):
     todoslayout = ""
         
     for todo in todos:
-        todoslayout += "<div graggable=\"true\">" + todo[1] + "</div>"
+        todoslayout += "<div draggable=\"true\">" + todo[1] + "</div>"
     
     return  HEADER + getMainMenu() + todoslayout + FOOTER
