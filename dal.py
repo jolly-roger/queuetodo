@@ -4,8 +4,7 @@ import psycopg2
 def addtodo(userid, name):
     conn = psycopg2.connect(constants.DB_CONNECTION)
     cur = conn.cursor()
-    cur.execute("insert into todo (name, user_id) values ('" + name.encode("utf-8").replace("'", "''") +
-        "', " + userid.encode("utf-8") + ");")
+    cur.execute("insert into todo (name, user_id) values ('" + name + "', " + userid + ");")
     conn.commit()
     cur.close()
     conn.close()
@@ -13,7 +12,7 @@ def addtodo(userid, name):
 def getlisttodos(userid):
     conn = psycopg2.connect(constants.DB_CONNECTION)
     cur = conn.cursor()
-    cur.execute("select * from todo where user_id = " + userid.encode("utf-8") + ";")
+    cur.execute("select * from todo where user_id = " + userid + ";")
     todos = cur.fetchall()
     cur.close()
     conn.close()
