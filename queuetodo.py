@@ -16,7 +16,7 @@ class queuetodo(object):
         else:
             authorization.checkAuthorization()
         
-            todos = dal.getlisttodo(user.getUserId())
+            todos = dal.getlisttodos(user.getUserId())
         
             return layout.getListTodo(todos)
     
@@ -27,7 +27,11 @@ class queuetodo(object):
         if not todoname == None:
             dal.addtodo(user.getUserId(), todoname)
         
-        return layout.getAddTodo()        
+        return layout.getAddTodo()
+        
+    @cherrypy.expose
+    def comments(self, todoid):
+        pass
         
     @cherrypy.expose
     def logout(self):
