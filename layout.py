@@ -3,14 +3,14 @@ import cherrypy
 from facebook import authorization
 
 
-HEADER = '<!DOCTYPE html>' \
-    '<html>' \
-        '<head>' \
-        '</head>' \
-            '<body>' 
+HEADER = "<!DOCTYPE html>" \
+    "<html>" \
+        "<head>" \
+        "</head>" \
+            "<body>" 
 
-FOOTER = '</body>' \
-    '</html>'
+FOOTER = "</body>" \
+    "</html>"
 
 def getMainMenu():
     if authorization.isAuthorized():
