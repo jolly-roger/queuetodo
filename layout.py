@@ -38,11 +38,9 @@ def getListTodo(todos):
     todoslayout = ""
         
     for todo in todos:
-        todoslayout += "<tr><td>" + todo[1] + "</td></tr>"
+        todoslayout += '<div draggable="true">' + todo[1] + '</div>'
     
     return HEADER \
                 + getMainMenu() + \
-                '''<table>''' \
                 + todoslayout + \
-                '''</table>''' + \
         FOOTER
