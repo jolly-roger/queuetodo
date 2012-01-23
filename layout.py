@@ -14,11 +14,11 @@ FOOTER = "</body>" \
 
 def getMainMenu():
     if authorization.isAuthorized():
-        return '&nbsp;<a href="/">home</a>' \
-            '&nbsp;<a href="/addtodo">add todo</a>' \
-            '&nbsp;<a href="/logout">logout</a>'
+        return "&nbsp;<a href=\"/\">home</a>" \
+            "&nbsp;<a href=\"/addtodo\">add todo</a>" \
+            "&nbsp;<a href=\"/logout\">logout</a>"
     else:
-        return '&nbsp;<a href="/signin">signin</a>'
+        return "&nbsp;<a href=\"/signin\">signin</a>"
     
 def getIndex():
     return HEADER \
