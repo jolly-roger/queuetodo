@@ -3,6 +3,15 @@ import cherrypy
 from facebook import authorization
 
 
+HEADER = '<!DOCTYPE html>' \
+    '<html>' \
+        '<head>' \
+        '</head>' \
+            '<body>' 
+
+FOOTER = '</body>' \
+    '</html>'
+
 def getMainMenu():
     if authorization.isAuthorized():
         return '&nbsp;<a href="/">home</a>' \
@@ -12,26 +21,18 @@ def getMainMenu():
         return '&nbsp;<a href="/signin">signin</a>'
     
 def getIndex():
-    return '''<html>
-            <head>
-            </head>
-            <body>''' \
+    return HEADER \
                 + getMainMenu() + \
-                '''</body>
-        </html>'''
+        FOOTER
         
 def getAddTodo():
-    return '''<html>
-            <head>
-            </head>
-            <body>''' \
+    return HEADER \
                 + getMainMenu() + \
                 '''<form action="/addtodo" method="post">
                     <input type="text" name="todoname"/>
                     <input type="submit" value="Add"/>
-                </form>
-            </body>
-        </html>'''
+                </form>''' + \
+        FOOTER
         
 def getListTodo(todos):
     todoslayout = ""
@@ -39,13 +40,9 @@ def getListTodo(todos):
     for todo in todos:
         todoslayout += "<tr><td>" + todo[1] + "</td></tr>"
     
-    return '''<html>
-            <head>
-            </head>
-            <body>''' \
+    return HEADER \
                 + getMainMenu() + \
                 '''<table>''' \
                 + todoslayout + \
-                '''</table>
-            </body>
-        </html>'''
+                '''</table>''' + \
+        FOOTER
