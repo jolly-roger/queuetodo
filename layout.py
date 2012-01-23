@@ -14,7 +14,6 @@ def getMainMenu():
 def getIndex():
     return '''<html>
             <head>
-                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
             </head>
             <body>''' \
                 + getMainMenu() + \
@@ -24,7 +23,6 @@ def getIndex():
 def getAddTodo():
     return '''<html>
             <head>
-                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
             </head>
             <body>''' \
                 + getMainMenu() + \
@@ -43,7 +41,6 @@ def getListTodo(todos):
     
     return '''<html>
             <head>
-                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
             </head>
             <body>''' \
                 + getMainMenu() + \
