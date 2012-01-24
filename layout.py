@@ -22,12 +22,14 @@ HEADER = "<!DOCTYPE html>" \
                 "footer, .push {" \
                     "height: 100px;" \
                 "}" \
-                "footer {background: #B5C1C0;}" \
+                "footer {" \
+                    "background: #B5C1C0;" \
+                    "padding: 10px;"\
+                "}" \
                 "#donebasket {"\
                     "height: 80px;"\
                     "width: 80px;"\
                     "background: #ffffff;"\
-                    "margin: 10px;"\
                 "}" \
             "</style>" \
         "</head>" \
