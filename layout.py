@@ -27,6 +27,7 @@ HEADER = "<!DOCTYPE html>" \
                     "height: 80px;"\
                     "width: 80px;"\
                     "background: #ffffff;"\
+                    "margin: 10px;"\
                 "}" \
             "</style>" \
         "</head>" \
