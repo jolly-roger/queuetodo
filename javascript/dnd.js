@@ -26,16 +26,13 @@ function handleDragStart(e) {
 function handleDrop(e) {
   if (e.stopPropagation) {
     e.stopPropagation();
-  }
+  };
 
   if (dragSrcEl != this) {
     var parentEl = dragSrcEl.parentElement;
     parentEl.removeChild(dragSrcEl);
     parentEl.insertBefore(dragSrcEl, this);
-    
-    //dragSrcEl.innerHTML = e.dataTransfer.getData('text/html') + this.innerHTML;
-    //this.innerHTML = "";
-  }
+  };
 
   return false;
 };
@@ -51,7 +48,7 @@ function handleDragEnd(e) {
 function handleDragOver(e) {
   if (e.preventDefault) {
     e.preventDefault();
-  }
+  };
 
   e.dataTransfer.dropEffect = 'move';
 
