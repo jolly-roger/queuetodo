@@ -11,11 +11,26 @@ HEADER = "<!DOCTYPE html>" \
                 ".todo.over {" \
                     "border-top: 2px dashed #000;" \
                 "}" \
+                "* {margin: 0;}" \
+                "html, body {height: 100%;}" \
+                "#wrap {" \
+                    "min-height: 100%;" \
+                    "height: auto !important;" \
+                    "height: 100%;" \
+                    "margin: 0 auto -100px;" \
+                "}" \
+                "footer, .push {" \
+                    "height: 100px;" \
+                "}" \
+                "footer {background: blue;}" \
             "</style>" \
         "</head>" \
-            "<body>" 
+            "<body>" \
+                "<div id=\"wrap\">"
 
-FOOTER = "<footer>" \
+FOOTER = "<div class=\"push\">" \
+            "</div>" \
+            "<footer>" \
                 "<div>Done basket</div>" \
             "</footer>"\
         "</body>" \
