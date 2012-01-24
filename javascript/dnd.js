@@ -15,16 +15,18 @@ window.onload = function(){
 };
 
 function doneBasketDrop(e){
-if (e.stopPropagation) {
-    e.stopPropagation();
-  };
+    alert("Yo!!!");    
+    
+    if (e.stopPropagation) {
+        e.stopPropagation();
+    };
 
-  if (dragSrcEl != this) {
-    var parentEl = dragSrcEl.parentElement;
-    parentEl.removeChild(dragSrcEl);
-  };
+    if (dragSrcEl != this) {
+        var parentEl = dragSrcEl.parentElement;
+        parentEl.removeChild(dragSrcEl);
+    };
 
-  return false;
+    return false;
 };
 
 var dragSrcEl = null;
