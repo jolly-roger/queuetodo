@@ -1,7 +1,7 @@
 var todos;
 
 window.onload = function(){
-    todos = document.querySelectorAll('.todo');
+    todos = document.querySelectorAll(".todo");
     [].forEach.call(todos, function(todo) {
         todo.addEventListener('dragstart', handleDragStart, false);
         todo.addEventListener('dragenter', handleDragEnter, false);
@@ -9,7 +9,22 @@ window.onload = function(){
         todo.addEventListener('dragleave', handleDragLeave, false);
         todo.addEventListener('drop', handleDrop, false);
         todo.addEventListener('dragend', handleDragEnd, false);
-    });       
+    });
+    var donebasket = document.querySelectorAll("#donebasket");
+    donebasket.addEventListener("drop", doneBasketDrop, false);
+};
+
+function doneBasketDrop(e){
+if (e.stopPropagation) {
+    e.stopPropagation();
+  };
+
+  if (dragSrcEl != this) {
+    var parentEl = dragSrcEl.parentElement;
+    parentEl.removeChild(dragSrcEl);
+  };
+
+  return false;
 };
 
 var dragSrcEl = null;

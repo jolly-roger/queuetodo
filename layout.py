@@ -22,7 +22,7 @@ HEADER = "<!DOCTYPE html>" \
                 "footer, .push {" \
                     "height: 100px;" \
                 "}" \
-                "footer {background: blue;}" \
+                "footer {background: #B5C1C0;}" \
             "</style>" \
         "</head>" \
             "<body>" \
@@ -32,7 +32,7 @@ FOOTER = "<div class=\"push\">" \
                 "</div>" \
             "</div>" \
             "<footer>" \
-                "<div>Done basket</div>" \
+                "<div id=\"donebasket\">Done basket</div>" \
             "</footer>"\
         "</body>" \
     "</html>"
