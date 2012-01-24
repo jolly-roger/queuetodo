@@ -12,9 +12,17 @@ window.onload = function(){
     });       
 };
 
-function handleDragStart(e){
-  this.style.opacity = "0.4";
-};
+var dragSrcEl = null;
+
+function handleDragStart(e) {
+  // Target (this) element is the source node.
+  this.style.opacity = '0.4';
+
+  dragSrcEl = this;
+
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/html', this.innerHTML);
+}
 
 //function handleDragEnd(e){
 //    this.style.opacity = "1";
