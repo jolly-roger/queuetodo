@@ -29,6 +29,7 @@ HEADER = "<!DOCTYPE html>" \
                 "<div id=\"wrap\">"
 
 FOOTER = "<div class=\"push\">" \
+                "</div>" \
             "</div>" \
             "<footer>" \
                 "<div>Done basket</div>" \
