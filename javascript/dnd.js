@@ -13,12 +13,18 @@ window.onload = function(){
     var donebaskets = document.querySelectorAll("#donebasket");
     [].forEach.call(donebaskets, function(donebasket){
         donebasket.addEventListener("drop", doneBasketDrop, false);
+        donebasket.addEventListener("dragover", doneBasketCancel, false);
+        donebasket.addEventListener("dragenter", doneBasketCancel, false);
     });
 };
 
+function doneBasketCancel(e) {
+    if (e.preventDefault) e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    return false;
+};
+
 function doneBasketDrop(e){
-    alert("Yo!!!");    
-    
     if (e.stopPropagation) {
         e.stopPropagation();
     };
