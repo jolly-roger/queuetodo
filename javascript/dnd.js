@@ -11,7 +11,7 @@ window.onload = function(){
         todo.addEventListener('dragend', handleDragEnd, false);
     });
     var donebaskets = document.querySelectorAll("#donebasket");
-    [].forEach.call(donebasket, function(donebasket){
+    [].forEach.call(donebaskets, function(donebasket){
         donebasket.addEventListener("drop", doneBasketDrop, false);
     });
 };
