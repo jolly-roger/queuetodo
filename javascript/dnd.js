@@ -2,7 +2,7 @@ window.onload = function(){
     var todos = document.querySelectorAll('.todo');
     [].forEach.call(todos, function(todo) {
         todo.addEventListener('dragstart', handleDragStart, false);
-        todo.addEventListener('dragend', handleDragEnd, false);
+        //todo.addEventListener('dragend', handleDragEnd, false);
     });       
 };
 
