@@ -39,7 +39,7 @@ function handleDragEnd(e) {
   // this/e.target is the source node.
 
   [].forEach.call(todos, function (todo) {
-    todo.removeClassName('over');
+    todo.classList.removeClassName('over');
   });
 }
 
@@ -55,9 +55,9 @@ function handleDragOver(e) {
 
 function handleDragEnter(e) {
   // this / e.target is the current hover target.
-  this.addClassName('over');
+  this.classList.addClassName('over');
 }
 
 function handleDragLeave(e) {
-  this.removeClassName('over');  // this / e.target is previous target element.
+  this.classList.removeClassName('over');  // this / e.target is previous target element.
 }
