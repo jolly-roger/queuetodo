@@ -72,7 +72,7 @@ class queuetodo(object):
     @cherrypy.expose
     @cherrypy.tools.encode(encoding='utf-8')
     def javascript(self):
-        js = str(open("javascript/dnd.js").read(), encoding="utf-8")
+        js = open("javascript/dnd.js").read()
         
         return js
 
