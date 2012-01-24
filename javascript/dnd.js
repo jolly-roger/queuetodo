@@ -37,7 +37,7 @@ function handleDrop(e) {
 };
 
 function handleDragEnd(e) {
-    this.stype.opacity = "1";    
+    this.style.opacity = "1";    
     
   [].forEach.call(todos, function (todo) {
     todo.classList.remove('over');
