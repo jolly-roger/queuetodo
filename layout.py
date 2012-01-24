@@ -15,7 +15,10 @@ HEADER = "<!DOCTYPE html>" \
         "</head>" \
             "<body>" 
 
-FOOTER = "</body>" \
+FOOTER = "<footer>" \
+                "<div>Done basket</div>" \
+            "</footer>"\
+        "</body>" \
     "</html>"
 
 def getMainMenu():
