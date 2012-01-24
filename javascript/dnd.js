@@ -10,8 +10,10 @@ window.onload = function(){
         todo.addEventListener('drop', handleDrop, false);
         todo.addEventListener('dragend', handleDragEnd, false);
     });
-    var donebasket = document.querySelectorAll("#donebasket");
-    donebasket.addEventListener("drop", doneBasketDrop, false);
+    var donebaskets = document.querySelectorAll("#donebasket");
+    [].forEach.call(donebasket, function(donebasket){
+        donebasket.addEventListener("drop", doneBasketDrop, false);
+    });
 };
 
 function doneBasketDrop(e){
