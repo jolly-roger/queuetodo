@@ -3,6 +3,16 @@ import cherrypy
 from facebook import authorization
 
 
+INDEX_HEADER = "<!DOCTYPE html>" \
+    "<html>" \
+        "<head>" \
+        "</head>" \
+            "<body>" \
+
+INDEX_FOOTER = "</body>" \
+    "</html>"
+
+
 HEADER = "<!DOCTYPE html>" \
     "<html>" \
         "<head>" \
@@ -54,9 +64,9 @@ def getMainMenu():
         return "&nbsp;<a href=\"/signin\">signin</a>"
     
 def getIndex():
-    return HEADER \
+    return INDEX_HEADER \
                 + getMainMenu() + \
-        FOOTER
+        INDEX_FOOTER
         
 def getAddTodo():
     return HEADER \
