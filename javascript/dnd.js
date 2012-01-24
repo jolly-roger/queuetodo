@@ -1,5 +1,7 @@
+var todos;
+
 window.onload = function(){
-    var todos = document.querySelectorAll('.todo');
+    todos = document.querySelectorAll('.todo');
     [].forEach.call(todos, function(todo) {
         todo.addEventListener('dragstart', handleDragStart, false);
         todo.addEventListener('dragenter', handleDragEnter, false);
@@ -33,8 +35,8 @@ function handleDrop(e) {
 function handleDragEnd(e) {
   // this/e.target is the source node.
 
-  [].forEach.call(cols, function (col) {
-    col.removeClassName('over');
+  [].forEach.call(todos, function (todo) {
+    todo.removeClassName('over');
   });
 }
 
