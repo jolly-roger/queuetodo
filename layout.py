@@ -6,6 +6,7 @@ from facebook import authorization
 HEADER = "<!DOCTYPE html>" \
     "<html>" \
         "<head>" \
+            "<script type=\"text/javascript\" src=\"/javascript\"></script>" \
         "</head>" \
             "<body>" 
 

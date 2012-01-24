@@ -68,7 +68,13 @@ class queuetodo(object):
             authentication.authenticate(code)
             
             raise cherrypy.HTTPRedirect("/#welcome")
-    
+            
+    @cherrypy.expose
+    @cherrypy.tools.encode(encoding='utf-8')
+    def javascript(self):
+        js = str(open("javascript/dnd.js").read(), encoding="utf-8")
+        
+        return js
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), 'queuetodo.conf')
 
