@@ -7,6 +7,11 @@ HEADER = "<!DOCTYPE html>" \
     "<html>" \
         "<head>" \
             "<script type=\"text/javascript\" src=\"/javascript\"></script>" \
+            "<style>" \
+                ".column.over {" \
+                    "border: 2px dashed #000;" \
+                "}" \
+            "</style>" \
         "</head>" \
             "<body>" 
 
