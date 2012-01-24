@@ -17,12 +17,16 @@ HEADER = "<!DOCTYPE html>" \
                     "min-height: 100%;" \
                     "height: auto !important;" \
                     "height: 100%;" \
-                    "margin: 0 auto -100px;" \
+                    "margin: 0 auto -5%;" \
                 "}" \
                 "footer, .push {" \
-                    "height: 100px;" \
+                    "height: 10%;" \
                 "}" \
                 "footer {background: #B5C1C0;}" \
+                "#donebasket {"\
+                    "height: 8%;"\
+                    "background: #ffffff;"\
+                "}" \
             "</style>" \
         "</head>" \
             "<body>" \
