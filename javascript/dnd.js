@@ -29,8 +29,11 @@ function handleDrop(e) {
   }
 
   if (dragSrcEl != this) {
-    dragSrcEl.innerHTML = e.dataTransfer.getData('text/html') + this.innerHTML;
-    this.innerHTML = "";
+    dragSrcEl.parent.removeChild(dragSrcEl);
+    //dragSrcEl.pa
+    
+    //dragSrcEl.innerHTML = e.dataTransfer.getData('text/html') + this.innerHTML;
+    //this.innerHTML = "";
   }
 
   return false;
