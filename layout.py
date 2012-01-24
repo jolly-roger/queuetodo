@@ -9,7 +9,7 @@ HEADER = "<!DOCTYPE html>" \
             "<script type=\"text/javascript\" src=\"/javascript\"></script>" \
             "<style>" \
                 ".todo.over {" \
-                    "border: 2px dashed #000;" \
+                    "border-top: 2px dashed #000;" \
                 "}" \
             "</style>" \
         "</head>" \

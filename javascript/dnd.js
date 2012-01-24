@@ -29,8 +29,8 @@ function handleDrop(e) {
   }
 
   if (dragSrcEl != this) {
-    dragSrcEl.innerHTML = this.innerHTML;
-    this.innerHTML = e.dataTransfer.getData('text/html');
+    dragSrcEl.innerHTML = e.dataTransfer.getData('text/html') + this.innerHTML;
+    this.innerHTML = "";
   }
 
   return false;
