@@ -15,7 +15,6 @@ window.onload = function(){
 var dragSrcEl = null;
 
 function handleDragStart(e) {
-  // Target (this) element is the source node.
   this.style.opacity = '0.4';
 
   dragSrcEl = this;
@@ -23,10 +22,6 @@ function handleDragStart(e) {
   e.dataTransfer.effectAllowed = 'move';
   e.dataTransfer.setData('text/html', this.innerHTML);
 }
-
-//function handleDragEnd(e){
-//    this.style.opacity = "1";
-//};
 
 function handleDrop(e) {
   // this / e.target is current target element.
