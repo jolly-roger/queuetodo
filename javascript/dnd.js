@@ -95,7 +95,7 @@ addLoadEvent(function(){
         new Draggable(todos[i], {revert: true});
         new Droppable(todos[i], {
             ondrop: function (element) {
-                var parentEl = dragSrcEl.parentElement;
+                var parentEl = element.parentElement;
                 parentEl.removeChild(element);
                 parentEl.insertBefore(element, this);
             }
