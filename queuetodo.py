@@ -72,15 +72,12 @@ class queuetodo(object):
     @cherrypy.expose
     @cherrypy.tools.encode(encoding='utf-8')
     def javascript(self):
-        js = open("javascript/dnd.js").read()
+        mochikit = open("javascript/mochikit/MochiKit.js").read()
+        dnd = open("javascript/dnd.js").read()
+        js = mochikit + dnd
         
         return js
-    
-    @cherrypy.expose
-    def mochikit(self):
-        js = open("javascript/mochikit/MochiKit.js").read()
-        
-        return js
+
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), 'queuetodo.conf')
 
