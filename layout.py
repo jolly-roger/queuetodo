@@ -30,10 +30,10 @@ HEADER = "<!DOCTYPE html>" \
                     "height: 100%;" \
                     "margin: 0 auto -100px;" \
                 "}" \
-                "footer, .push {" \
+                "#footer, .push {" \
                     "height: 100px;" \
                 "}" \
-                "footer {" \
+                "#footer {" \
                     "background: #B5C1C0;" \
                     "padding: 10px;"\
                 "}" \
@@ -50,9 +50,9 @@ HEADER = "<!DOCTYPE html>" \
 FOOTER = "<div class=\"push\">" \
                 "</div>" \
             "</div>" \
-            "<footer>" \
+            "<div id=\"footer\">" \
                 "<div id=\"donebasket\">Done basket</div>" \
-            "</footer>"\
+            "</div>"\
         "</body>" \
     "</html>"
 
