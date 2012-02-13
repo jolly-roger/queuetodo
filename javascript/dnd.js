@@ -90,7 +90,7 @@
 
 
 addLoadEvent(function(){
-    var todos = getElementsByTagAndClassName("div", "toco");
+    var todos = getElementsByTagAndClassName("div", "todo");
     for(var i = 0; i < todos.length; i ++){
         new Draggable(todos[i]);
     };
