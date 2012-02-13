@@ -92,6 +92,6 @@
 addLoadEvent(function(){
     var todos = getElementsByTagAndClassName("div", "todo");
     for(var i = 0; i < todos.length; i ++){
-        new Draggable(todos[i]);
+        new Draggable(todos[i], {revert: true});
     };
 });
