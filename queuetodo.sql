@@ -7,3 +7,4 @@ create table todo (
 	id_todo integer primary key not null default nextval('id_todo_seq'),	
 	name varchar(256)
 );
+
