@@ -94,13 +94,13 @@ addLoadEvent(function(){
     for(var i = 0; i < todos.length; i ++){
         new Draggable(todos[i], {revert: true});
         new Droppable(todos[i], {
-            ondrop: function (element) {
-                this.index = i;
-                
-                var parentEl = element.parentElement;
-                parentEl.removeChild(element);
-                parentEl.insertBefore(element, todos[this.index]);
-            }
+            ondrop: (function(index){
+                return function(element){
+                    var parentEl = element.parentElement;
+                    parentEl.removeChild(element);
+                    parentEl.insertBefore(element, todos[index]);
+                };
+            })(i)
         });
     };
     
