@@ -95,11 +95,11 @@ addLoadEvent(function(){
         new Draggable(todos[i], {revert: true});
         new Droppable(todos[i], {
             ondrop: function (element) {
-                (function(){
+                (function(index){
                     var parentEl = element.parentElement;
                     parentEl.removeChild(element);
-                    parentEl.insertBefore(element, todos[i]);
-                })();
+                    parentEl.insertBefore(element, todos[index]);
+                })(i);
             }
         });
     };
