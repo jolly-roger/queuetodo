@@ -90,5 +90,8 @@
 
 
 addLoadEvent(function(){
-    alert("Yo!!!");
+    var todos = getElementsByTagAndClassName("div", "toco");
+    for(var i = 0; i < todos.length; i ++){
+        new Draggable(todos[i]);
+    };
 });
