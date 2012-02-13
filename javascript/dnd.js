@@ -96,8 +96,8 @@ addLoadEvent(function(){
         new Droppable(todos[i], {
             ondrop: function (element) {
                 var parentEl = element.parentElement;
-                parentEl.removeChild(element);
                 parentEl.insertBefore(element, this);
+                parentEl.removeChild(element);
             }
         });
     };
