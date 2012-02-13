@@ -93,5 +93,19 @@ addLoadEvent(function(){
     var todos = getElementsByTagAndClassName("div", "todo");
     for(var i = 0; i < todos.length; i ++){
         new Draggable(todos[i], {revert: true});
+        new Droppable(todos[i], {
+            ondrop: function (element) {
+                var parentEl = dragSrcEl.parentElement;
+                parentEl.removeChild(element);
+                parentEl.insertBefore(element, this);
+            }
+        });
     };
+    
+    new Droppable('donebasket', {
+        ondrop: function (element) {
+            var parentEl = element.parentElement;
+            parentEl.removeChild(element);
+        }
+    });
 });
