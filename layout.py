@@ -17,6 +17,7 @@ HEADER = "<!DOCTYPE html>" \
     "<html>" \
         "<head>" \
             "<script type=\"text/javascript\" src=\"/javascript\"></script>" \
+            "<script type=\"text/javascript\" src=\"/mochikit\"></script>" \
             "<style>" \
                 ".todo.over {" \
                     "border-top: 2px dashed #000;" \

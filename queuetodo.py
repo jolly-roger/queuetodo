@@ -78,7 +78,9 @@ class queuetodo(object):
     
     @cherrypy.expose
     def mochikit(self):
-        pass
+        js = open("javascript/mochikit/MochiKit.js").read()
+        
+        return js
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), 'queuetodo.conf')
 
