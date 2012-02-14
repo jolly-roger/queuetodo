@@ -31,7 +31,7 @@ class queuetodo(object):
         authorization.checkAuthorization()
         
         if not todoname == None:
-            dal.addtodo(user.getUserId(), todoname)
+            dal.addtodo(int(user.getUserId()), todoname)
         
         return layout.getAddTodo()
     
