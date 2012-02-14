@@ -73,8 +73,9 @@ class queuetodo(object):
     @cherrypy.tools.encode(encoding='utf-8')
     def javascript(self):
         mochikit = open("javascript/mochikit/MochiKit.js").read()
+        constants = open("javascript/constants.js").read()
         dnd = open("javascript/dnd.js").read()
-        js = mochikit + dnd
+        js = mochikit + constants + dnd
         
         return js
     

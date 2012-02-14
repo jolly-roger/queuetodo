@@ -110,7 +110,7 @@ addLoadEvent(function(){
             parentEl.removeChild(element);
             var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=element);
             if(todoidelement && todoidelement.value){
-                doSimpleXMLHttpRequest("http://dns-dig.net/setdone/" + todoidelement.value + "/");
+                doSimpleXMLHttpRequest("http://" + HOST + "/setdone/" + todoidelement.value + "/");
             };
         }
     });

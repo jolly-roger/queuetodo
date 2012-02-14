@@ -1,0 +1,1 @@
+var HOST = "dns-dig.net";
