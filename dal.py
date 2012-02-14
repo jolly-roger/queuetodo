@@ -4,7 +4,7 @@ import psycopg2
 def addtodo(userid, name):
     conn = psycopg2.connect(constants.DB_CONNECTION)
     cur = conn.cursor()
-    inserttodo = "insert into todo (name, user_id) values (%s, %s);" 
+    inserttodo = "select addtodo(%s, %s);" 
     cur.execute(inserttodo, (name, userid))
     conn.commit()
     cur.close()
