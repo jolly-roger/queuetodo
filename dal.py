@@ -27,7 +27,7 @@ def insertbefore(todoid, beforeid):
 def setdonestatus(todoid):
     conn = psycopg2.connect(constants.DB_CONNECTION)
     cur = conn.cursor()
-    setdone = "update todo set status_id = 1 where todo_id = %s;" 
+    setdone = "update todo set status_id = 1 where id_todo = %s;" 
     cur.execute(setdone, (todoid,))
     conn.commit()
     cur.close()
