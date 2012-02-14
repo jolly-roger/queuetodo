@@ -24,7 +24,7 @@ class queuetodo(object):
             return layout.getInitTodos(todos)
             
     @cherrypy.expose
-    @cherrypy.tools.encoding(encoding='utf-8')
+    @cherrypy.tools.encode(encoding='utf-8')
     def donelist(self):
         cherrypy.response.headers['Content-Type'] = "text/html; charset=utf-8" 
         
