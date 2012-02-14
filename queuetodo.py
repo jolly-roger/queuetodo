@@ -87,7 +87,7 @@ class queuetodo(object):
     @cherrypy.tools.encode(encoding='utf-8')
     def setdone(self, todoid=None):
         if not todoid == None:
-            dal.setdonestatus(todoid)
+            dal.setdonestatus(int(todoid))
 
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), 'queuetodo.conf')
