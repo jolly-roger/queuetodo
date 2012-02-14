@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION addtodo(todo_name text, user_id integer) returns boolean AS
+CREATE OR REPLACE FUNCTION addtodo(todo_name varchar(256), user_id bigint) returns boolean AS
 $BODY$
 declare
     new_todo_id bigint;
