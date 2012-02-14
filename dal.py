@@ -13,7 +13,7 @@ def addtodo(userid, name):
 def getlisttodos(userid):
     conn = psycopg2.connect(constants.DB_CONNECTION)
     cur = conn.cursor()
-    getusertodos = "select getusertodos(%s, %s);"
+    getusertodos = "select * from getusertodos(%s, %s);"
     cur.execute(getusertodos, (userid, 0))
     todos = cur.fetchall()
     cur.close()
