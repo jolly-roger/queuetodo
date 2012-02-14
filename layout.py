@@ -50,7 +50,7 @@ FOOTER = "<div class=\"push\">" \
                 "</div>" \
             "</div>" \
             "<div id=\"footer\">" \
-                "<div id=\"donebasket\">Done basket</div>" \
+                "<div id=\"donebasket\"><a href=\"/donelist\">Done basket</a></div>" \
             "</div>"\
         "</body>" \
     "</html>"
@@ -77,7 +77,13 @@ def getAddTodo():
                 </form>''' + \
         FOOTER
         
-def getListTodo(todos):
+def getInitTodos(todos):
+    return getTodoList(todos, "Current")
+    
+def getDoneTodos(todos):
+    return getTodoList(todos, "Done")
+
+def getTodoList(todos, title):
     todoslayout = ""
         
     for todo in todos:
@@ -85,4 +91,10 @@ def getListTodo(todos):
             "<input type=\"hidden\" class=\"todoid\" value=\"" + str(todo[0]) + "\" />" + \
             todo[1] + "</div>"
     
-    return  HEADER + getMainMenu() + todoslayout + FOOTER
+    return  HEADER + \
+        getMainMenu() + \
+        "<h3>" + title + "</h3>" + \
+        todoslayout + \
+        FOOTER
+    
+    

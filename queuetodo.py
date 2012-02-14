@@ -19,9 +19,23 @@ class queuetodo(object):
         else:
             authorization.checkAuthorization()
         
-            todos = dal.getlisttodos(user.getUserId())
+            todos = dal.gettodos(user.getUserId(), 0)
         
-            return layout.getListTodo(todos)
+            return layout.getInitTodos(todos)
+            
+    @cherrypy.expose
+    @cherrypy.tools.encoding(encoding='utf-8')
+    def donelist(self):
+        cherrypy.response.headers['Content-Type'] = "text/html; charset=utf-8" 
+        
+        if not authorization.isAuthorized():
+            return layout.getIndex()
+        else:
+            authorization.checkAuthorization()
+        
+            todos = dal.gettodos(user.getUserId(), 1)
+        
+            return layout.getDoneTodos(todos)
     
     @cherrypy.expose
     @cherrypy.tools.encode(encoding='utf-8')
