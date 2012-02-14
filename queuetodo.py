@@ -77,6 +77,17 @@ class queuetodo(object):
         js = mochikit + dnd
         
         return js
+    
+    @cherrypy.expose
+    @cherrypy.tools.encode(encoding='utf-8')
+    def insertbefore(self, todoid, beforeid):
+        pass
+    
+    @cherrypy.expose
+    @cherrypy.tools.encode(encoding='utf-8')
+    def setdone(self, todoid=None):
+        if not todoid == None:
+            dal.setdonestatus(todoid)
 
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), 'queuetodo.conf')

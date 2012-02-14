@@ -82,7 +82,7 @@ def getListTodo(todos):
         
     for todo in todos:
         todoslayout += "<div class=\"todo\" >" + \
-            "<input type=\"hidden\" value=\"" + str(todo[0]) + "\" />" + \
+            "<input type=\"hidden\" class=\"todoid\" value=\"" + str(todo[0]) + "\" />" + \
             todo[1] + "</div>"
     
     return  HEADER + getMainMenu() + todoslayout + FOOTER

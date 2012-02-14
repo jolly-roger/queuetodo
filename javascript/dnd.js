@@ -108,6 +108,10 @@ addLoadEvent(function(){
         ondrop: function (element) {
             var parentEl = element.parentElement;
             parentEl.removeChild(element);
+            var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=element);
+            if(todoidelement && todoidelement.value){
+                alert(todoidelement.value);
+            };
         }
     });
 });
