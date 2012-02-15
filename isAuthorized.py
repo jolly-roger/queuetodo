@@ -14,4 +14,4 @@ class isAuthorized(object):
         else:
             authorization.checkAuthorization()
             
-            self.f(args)
+            self.f(*args)
