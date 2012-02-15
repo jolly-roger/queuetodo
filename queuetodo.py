@@ -7,6 +7,8 @@ from facebook import authorization
 from facebook import authentication
 from facebook import user
 
+from . import constants
+
 
 class queuetodo(object):
     @cherrypy.expose
@@ -86,10 +88,10 @@ class queuetodo(object):
     @cherrypy.expose
     @cherrypy.tools.encode(encoding='utf-8')
     def javascript(self):
-        mochikit = open("javascript/mochikit/MochiKit.js").read()
-        constants = open("javascript/constants.js").read()
-        dnd = open("javascript/dnd.js").read()
-        js = mochikit + constants + dnd
+        mochikit = open(constants.BASE_DIR + "javascript/mochikit/MochiKit.js").read()
+        consts= open(constants.BASE_DIR + "javascript/constants.js").read()
+        dnd = open(constants.BASE_DIR + "javascript/dnd.js").read()
+        js = mochikit + consts + dnd
         
         return js
     
