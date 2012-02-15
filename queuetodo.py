@@ -34,12 +34,15 @@ class queuetodo(object):
     
     @cherrypy.expose
     def addtodo(self, todoname=None):
-        authorization.checkAuthorization()
+        if not authorization.isAuthorized():
+            return layout.getIndex()
+        else:
+            authorization.checkAuthorization()
         
-        if not todoname == None:
-            dal.addtodo(int(user.getUserId()), todoname)
+            if not todoname == None:
+                dal.addtodo(int(user.getUserId()), todoname)
         
-        return layout.getAddTodo()
+            return layout.getAddTodo()
     
     @cherrypy.expose
     def comments(self, todoid):
@@ -79,8 +82,13 @@ class queuetodo(object):
     
     @cherrypy.expose
     def setdone(self, todoid=None):
-        if not todoid == None:
-            dal.setdonestatus(int(todoid))
+        if not authorization.isAuthorized():
+            return layout.getIndex()
+        else:
+            authorization.checkAuthorization()
+            
+            if not todoid == None:
+                dal.setdonestatus(int(todoid))
 
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), 'queuetodo.conf')
