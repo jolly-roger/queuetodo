@@ -9,6 +9,28 @@ def addtodo(userid, name):
     conn.commit()
     cur.close()
     conn.close()
+
+def getmytodos(userid):
+    conn = psycopg2.connect(constants.DB_CONNECTION)
+    cur = conn.cursor()
+    getmytodos = "select * from getmytodos(%s);"
+    cur.execute(getmytodos, (userid,))
+    todos = cur.fetchall()
+    cur.close()
+    conn.close()
+    
+    return todos
+
+def getsharedwithmetodos(userid):
+    conn = psycopg2.connect(constants.DB_CONNECTION)
+    cur = conn.cursor()
+    getsharedwithmetodos = "select * from getsharedwithmetodos(%s);"
+    cur.execute(getsharedwithmetodos, (userid,))
+    todos = cur.fetchall()
+    cur.close()
+    conn.close()
+    
+    return todos
     
 def gettodos(userid, statusid):
     conn = psycopg2.connect(constants.DB_CONNECTION)

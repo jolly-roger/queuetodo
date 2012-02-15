@@ -15,7 +15,7 @@ class queuetodo(object):
     @cherrypy.expose
     @isAuthorized
     def index(self):
-        todos = dal.gettodos(user.getUserId(), 0)
+        todos = dal.getmytodos(user.getUserId())
     
         return layout.getInitTodos(todos)
             
