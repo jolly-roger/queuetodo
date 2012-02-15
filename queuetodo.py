@@ -13,8 +13,6 @@ class queuetodo(object):
     @cherrypy.expose
     @cherrypy.tools.encode(encoding='utf-8')
     def index(self):
-        cherrypy.response.headers['Content-Type'] = "text/html; charset=utf-8" 
-        
         if not authorization.isAuthorized():
             return layout.getIndex()
         else:
@@ -27,8 +25,6 @@ class queuetodo(object):
     @cherrypy.expose
     @cherrypy.tools.encode(encoding='utf-8')
     def donelist(self):
-        cherrypy.response.headers['Content-Type'] = "text/html; charset=utf-8" 
-        
         if not authorization.isAuthorized():
             return layout.getIndex()
         else:
@@ -41,8 +37,6 @@ class queuetodo(object):
     @cherrypy.expose
     @cherrypy.tools.encode(encoding='utf-8')
     def addtodo(self, todoname=None):
-        cherrypy.response.headers['Content-Type'] = "text/html; charset=utf-8" 
-        
         authorization.checkAuthorization()
         
         if not todoname == None:
@@ -58,8 +52,6 @@ class queuetodo(object):
     @cherrypy.expose
     @cherrypy.tools.encode(encoding='utf-8')
     def logout(self):
-        cherrypy.response.headers['Content-Type'] = "text/html; charset=utf-8" 
-        
         authorization.checkAuthorization()
         authorization.deauthorize()
         authentication.deauthenticate()
@@ -69,15 +61,11 @@ class queuetodo(object):
     @cherrypy.expose
     @cherrypy.tools.encode(encoding='utf-8')
     def signin(self):
-        cherrypy.response.headers['Content-Type'] = "text/html; charset=utf-8" 
-        
         authorization.authorize();        
 
     @cherrypy.expose
     @cherrypy.tools.encode(encoding='utf-8')
     def authorizecallback(self, code=None, error_reason=None, error=None):
-        cherrypy.response.headers['Content-Type'] = "text/html; charset=utf-8" 
-        
         if not authorization.isAuthorized():
             authorization.callbackHandler(code)
             authentication.authenticate(code)
