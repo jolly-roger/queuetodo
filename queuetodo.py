@@ -11,7 +11,6 @@ from facebook import user
 
 class queuetodo(object):
     @cherrypy.expose
-    @cherrypy.tools.encode(encoding='utf-8')
     def index(self):
         if not authorization.isAuthorized():
             return layout.getIndex()
@@ -23,7 +22,6 @@ class queuetodo(object):
             return layout.getInitTodos(todos)
             
     @cherrypy.expose
-    @cherrypy.tools.encode(encoding='utf-8')
     def donelist(self):
         if not authorization.isAuthorized():
             return layout.getIndex()
@@ -35,7 +33,6 @@ class queuetodo(object):
             return layout.getDoneTodos(todos)
     
     @cherrypy.expose
-    @cherrypy.tools.encode(encoding='utf-8')
     def addtodo(self, todoname=None):
         authorization.checkAuthorization()
         
@@ -45,12 +42,10 @@ class queuetodo(object):
         return layout.getAddTodo()
     
     @cherrypy.expose
-    @cherrypy.tools.encode(encoding='utf-8')
     def comments(self, todoid):
         pass
     
     @cherrypy.expose
-    @cherrypy.tools.encode(encoding='utf-8')
     def logout(self):
         authorization.checkAuthorization()
         authorization.deauthorize()
@@ -59,12 +54,10 @@ class queuetodo(object):
         raise cherrypy.HTTPRedirect("/")
     
     @cherrypy.expose
-    @cherrypy.tools.encode(encoding='utf-8')
     def signin(self):
         authorization.authorize();        
 
     @cherrypy.expose
-    @cherrypy.tools.encode(encoding='utf-8')
     def authorizecallback(self, code=None, error_reason=None, error=None):
         if not authorization.isAuthorized():
             authorization.callbackHandler(code)
@@ -73,7 +66,6 @@ class queuetodo(object):
             raise cherrypy.HTTPRedirect("/#welcome")
             
     @cherrypy.expose
-    @cherrypy.tools.encode(encoding='utf-8')
     def javascript(self):
         mochikit = open(constants.BASE_DIR + "javascript/mochikit/MochiKit.js").read()
         consts= open(constants.BASE_DIR + "javascript/constants.js").read()
@@ -83,12 +75,10 @@ class queuetodo(object):
         return js
     
     @cherrypy.expose
-    @cherrypy.tools.encode(encoding='utf-8')
     def insertbefore(self, todoid, beforeid):
         pass
     
     @cherrypy.expose
-    @cherrypy.tools.encode(encoding='utf-8')
     def setdone(self, todoid=None):
         if not todoid == None:
             dal.setdonestatus(int(todoid))
