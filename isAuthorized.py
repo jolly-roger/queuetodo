@@ -4,14 +4,13 @@ import layout
 from facebook import authorization
 
 
-class isAuthorized(object):
-    def __init__(self, f):
-        self.f = f
-        
-    def __call__(self, *args, **kwargs):
+def isAuthorized(f):
+    def _isAuthorized(*args, **kwargs):
         if not authorization.isAuthorized():
             return layout.getIndex()
         else:
             authorization.checkAuthorization()
             
-            return self.f(*args, **kwargs)
+            return f(*args, **kwargs)
+            
+    return _isAuthorized
