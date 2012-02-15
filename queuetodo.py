@@ -2,12 +2,11 @@ import cherrypy
 import os.path
 import dal
 import layout
+import constants
 
 from facebook import authorization
 from facebook import authentication
 from facebook import user
-
-from . import constants
 
 
 class queuetodo(object):
