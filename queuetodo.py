@@ -4,6 +4,8 @@ import dal
 import layout
 import constants
 
+from isAuthorized import isAuthorized
+
 from facebook import authorization
 from facebook import authentication
 from facebook import user
@@ -11,38 +13,26 @@ from facebook import user
 
 class queuetodo(object):
     @cherrypy.expose
+    @isAuthorized
     def index(self):
-        if not authorization.isAuthorized():
-            return layout.getIndex()
-        else:
-            authorization.checkAuthorization()
-        
-            todos = dal.gettodos(user.getUserId(), 0)
-        
-            return layout.getInitTodos(todos)
+        todos = dal.gettodos(user.getUserId(), 0)
+    
+        return layout.getInitTodos(todos)
             
     @cherrypy.expose
+    @isAuthorized
     def donelist(self):
-        if not authorization.isAuthorized():
-            return layout.getIndex()
-        else:
-            authorization.checkAuthorization()
-        
-            todos = dal.gettodos(user.getUserId(), 1)
-        
-            return layout.getDoneTodos(todos)
+        todos = dal.gettodos(user.getUserId(), 1)
+    
+        return layout.getDoneTodos(todos)
     
     @cherrypy.expose
+    @isAuthorized
     def addtodo(self, todoname=None):
-        if not authorization.isAuthorized():
-            return layout.getIndex()
-        else:
-            authorization.checkAuthorization()
-        
-            if not todoname == None:
-                dal.addtodo(int(user.getUserId()), todoname)
-        
-            return layout.getAddTodo()
+        if not todoname == None:
+            dal.addtodo(int(user.getUserId()), todoname)
+    
+        return layout.getAddTodo()
     
     @cherrypy.expose
     def comments(self, todoid):
@@ -81,14 +71,10 @@ class queuetodo(object):
         pass
     
     @cherrypy.expose
+    @isAuthorized
     def setdone(self, todoid=None):
-        if not authorization.isAuthorized():
-            return layout.getIndex()
-        else:
-            authorization.checkAuthorization()
-            
-            if not todoid == None:
-                dal.setdonestatus(int(todoid))
+        if not todoid == None:
+            dal.setdonestatus(int(todoid))
 
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), 'queuetodo.conf')
