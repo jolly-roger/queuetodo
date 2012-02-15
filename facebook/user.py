@@ -16,11 +16,10 @@ def loadUser(access_token):
     
     user_data = json.loads(raw_user_data)
     
-    cherrypy.response.cookie[FACEBOOK_USER_ID] = user_data['id']
+    cherrypy.session[FACEBOOK_USER_ID] = user_data['id']
     
 def getUserId():
-    return cherrypy.request.cookie[FACEBOOK_USER_ID].value
+    return cherrypy.session.get(FACEBOOK_USER_ID)
     
 def unloadUser():
-    cherrypy.response.cookie[FACEBOOK_USER_ID] = cherrypy.request.cookie[FACEBOOK_USER_ID]
-    cherrypy.response.cookie[FACEBOOK_USER_ID]['expires'] = 0
+    cherrypy.lib.sessions.expire()

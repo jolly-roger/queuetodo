@@ -48,8 +48,7 @@ class queuetodo(object):
     @cherrypy.expose
     def logout(self):
         authorization.checkAuthorization()
-        authorization.deauthorize()
-        authentication.deauthenticate()
+        user.unloadUser()
         
         raise cherrypy.HTTPRedirect("/")
     
