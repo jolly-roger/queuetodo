@@ -74,7 +74,7 @@ def getAddTodo():
     return HEADER \
                 + getMainMenu() + \
                 '''<form action="/addtodo" method="post">
-                    <input type="text" name="todoname"/>
+                    <textarea rows=\"5\" cols=\"50\" name="todoname"/>
                     <input type="submit" value="Add"/>
                 </form>''' + \
         FOOTER
