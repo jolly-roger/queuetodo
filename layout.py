@@ -100,7 +100,7 @@ def getTodoList(todos, friends, title):
     
     return  HEADER + \
         getMainMenu() + \
-        "<table><tr><td>" + \
+        "<table><tr><td valign=\"top\">" + \
         "<h3>" + title + "</h3>" + \
         todoslayout + \
         "</td><td>" + \
