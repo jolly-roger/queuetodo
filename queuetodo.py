@@ -87,6 +87,14 @@ class queuetodo(object):
             td = todo.todo()
             td.setdonestatus(int(todoid))
             td.close()
+            
+    @cherrypy.expose
+    @isAuthorized
+    def share(self, todoid, friendid):
+        if not todoid == None and not friendid == None:
+            td = todo.todo()
+            td.share(int(todoid), int(friendid))
+            td.close()
 
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), "queuetodo.conf")

@@ -5,8 +5,13 @@ class todo(base.base):
         base.base.__init__(self)    
     
     def add(self, userid, name):
-        inserttodo = "select addtodo(%s, %s);" 
-        self.cur.execute(inserttodo, (name, userid))
+        addtodo = "select addtodo(%s, %s);" 
+        self.cur.execute(addtodo, (name, userid))
+        self.conn.commit()
+        
+    def share(self, todoid, friendid):
+        sharetodo = "select sharetodo(%s, %s);" 
+        self.cur.execute(sharetodo, (todoid, friendid))
         self.conn.commit()
     
     def insertbefore(self, todoid, beforeid):

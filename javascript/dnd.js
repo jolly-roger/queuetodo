@@ -96,9 +96,20 @@ addLoadEvent(function(){
         new Droppable(todos[i], {
             ondrop: (function(index){
                 return function(element){
-                    var parentEl = element.parentElement;
-                    parentEl.removeChild(element);
-                    parentEl.insertBefore(element, todos[index]);
+                    if(hasElementClass(element, "todo")){
+                        var parentEl = element.parentElement;
+                        parentEl.removeChild(element);
+                        parentEl.insertBefore(element, todos[index]);
+                    }else if(hasElementClass(element, "friend")){
+                        alert("Yo!!!");
+                        
+                        var friendidelement = getFirstElementByTagAndClassName("input", "friendid", parent=element);
+                        var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=todos[index]);
+                        if(friendidelement && friendidelement.value && todoidelement && todoidelement.value){
+                            doSimpleXMLHttpRequest("http://" + HOST + "/share/" + friendidelement.value + "/" +
+                                todoidelement.value + "/");
+                        };
+                    }
                 };
             })(i)
         });
@@ -107,15 +118,15 @@ addLoadEvent(function(){
     var friends = getElementsByTagAndClassName("div", "friend");
     for(var i = 0; i < friends.length; i ++){
         new Draggable(friends[i], {revert: true});
-        new Droppable(friends[i], {
-            ondrop: (function(index){
-                return function(element){
-                    //var parentEl = element.parentElement;
-                    //parentEl.removeChild(element);
-                    //parentEl.insertBefore(element, todos[index]);
-                };
-            })(i)
-        });
+        //new Droppable(friends[i], {
+        //    ondrop: (function(index){
+        //        return function(element){
+        //            //var parentEl = element.parentElement;
+        //            //parentEl.removeChild(element);
+        //            //parentEl.insertBefore(element, todos[index]);
+        //        };
+        //    })(i)
+        //});
     };
     
     new Droppable('donebasket', {
