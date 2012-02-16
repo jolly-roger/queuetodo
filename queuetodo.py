@@ -8,6 +8,7 @@ from isAuthorized import isAuthorized
 from facebook import authorization
 from facebook import authentication
 from facebook import user
+from facebook import friends
 
 from dal import todo
 from dal import todolist
@@ -85,6 +86,11 @@ class queuetodo(object):
             td = todo.todo()
             td.setdonestatus(int(todoid))
             td.close()
+            
+    @cherrypy.expose
+    @isAuthorized
+    def getfriends(self):
+        return friends.getfriends()
 
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), 'queuetodo.conf')
