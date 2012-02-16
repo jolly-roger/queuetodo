@@ -38,7 +38,7 @@ class queuetodo(object):
     @isAuthorized
     def shared(self):
         tdl = todolist.todoList()
-        todos = tdl.getsharedwithme(user.getUserId(), 1)
+        todos = tdl.getsharedwithme(user.getUserId())
         tdl.close()    
     
         return layout.getSharedTodos(todos)
