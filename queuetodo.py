@@ -93,8 +93,8 @@ class queuetodo(object):
         frs = friends.getfriends()
         out = ""
         
-        for key in frs["data"]:
-            out += key + ", "
+        for f in frs["data"]:
+            out += f["name"] + ", "
             
         return out
 
