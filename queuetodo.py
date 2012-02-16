@@ -90,7 +90,13 @@ class queuetodo(object):
     @cherrypy.expose
     @isAuthorized
     def getfriends(self):
-        return friends.getfriends()["data"]
+        frs = friends.getfriends()
+        out = ""
+        
+        for key in frs:
+            out += key + ", "
+            
+        return out
 
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), "queuetodo.conf")
