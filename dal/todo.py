@@ -1,4 +1,4 @@
-import base
+from . import base
 
 class todo(base.base):
     def add(self, userid, name):
