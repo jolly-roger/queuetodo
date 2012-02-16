@@ -37,7 +37,7 @@ class queuetodo(object):
     def addtodo(self, todoname=None):
         if not todoname == None:
             td = todo.todo()
-            td.addtodo(int(user.getUserId()), todoname)
+            td.add(int(user.getUserId()), todoname)
             td.close()
     
         return layout.getAddTodo()
