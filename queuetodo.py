@@ -33,6 +33,15 @@ class queuetodo(object):
         tdl.close()    
     
         return layout.getDoneTodos(todos)
+        
+    @cherrypy.expose
+    @isAuthorized
+    def shared(self):
+        tdl = todolist.todoList()
+        todos = tdl.getsharedwithme(user.getUserId(), 1)
+        tdl.close()    
+    
+        return layout.getSharedTodos(todos)
     
     @cherrypy.expose
     @isAuthorized

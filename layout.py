@@ -59,6 +59,7 @@ def getMainMenu():
     if authorization.isAuthorized():
         return "&nbsp;<a href=\"/\">home</a>" \
             "&nbsp;<a href=\"/addtodo\">add todo</a>" \
+            "&nbsp;<a href=\"/shared\">shared</a>" \
             "&nbsp;<a href=\"/logout\">logout</a>"
     else:
         return "&nbsp;<a href=\"/signin\">signin</a>"
@@ -82,6 +83,9 @@ def getInitTodos(todos, friends):
     
 def getDoneTodos(todos):
     return getTodoList(todos, None, "Done")
+    
+def getSharedTodos(todos):
+    return getTodoList(todos, None, "Shared")
 
 def getTodoList(todos, friends, title):
     todoslayout = ""
