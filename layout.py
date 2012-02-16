@@ -95,8 +95,8 @@ def getTodoList(todos, friends, title):
     if not friends == None:
         for friend in friends["data"]:
             friendslayout += "<div class=\"friend\" >" + \
-                "<input type=\"hidden\" class=\"friendid\" value=\"" + str(friend["name"]) + "\" />" + \
-                friend["id"] + "</div>"
+                "<input type=\"hidden\" class=\"friendid\" value=\"" + friend["id"] + "\" />" + \
+                friend["name"] + "</div>"
     
     return  HEADER + \
         getMainMenu() + \
