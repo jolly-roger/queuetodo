@@ -1,6 +1,9 @@
 from . import base
 
 class todo(base.base):
+    def __iadd__(self):
+        base.base.__init__(self)    
+    
     def add(self, userid, name):
         inserttodo = "select addtodo(%s, %s);" 
         self.cur.execute(inserttodo, (name, userid))

@@ -1,6 +1,9 @@
 from . import base
 
 class todoList(base.base):
+    def __iadd__(self):
+        base.base.__init__(self)
+    
     def getmytodos(self, userid):
         getmytodos = "select * from getmytodos(%s);"
         self.cur.execute(getmytodos, (userid,))
