@@ -18,7 +18,7 @@ class todoList(base.base):
         
         return todos
     
-    def getsharedwithme(self, userid):
+    def getshared(self, userid):
         getsharedtodos = "select * from getsharedtodos(%s);"
         self.cur.execute(getsharedtodos, (userid,))
         todos = self.cur.fetchall()
