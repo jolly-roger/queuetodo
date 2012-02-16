@@ -1,6 +1,5 @@
 import cherrypy
 import os.path
-import dal
 import layout
 import constants
 
@@ -10,19 +9,26 @@ from facebook import authorization
 from facebook import authentication
 from facebook import user
 
+from dal import todo
+from dal import todolist
+
 
 class queuetodo(object):
     @cherrypy.expose
     @isAuthorized
     def index(self):
-        todos = dal.getmytodos(user.getUserId())
+        tdl = todolist.todoList()
+        todos = tdl.getmytodos(user.getUserId())
+        tdl.close()
     
         return layout.getInitTodos(todos)
             
     @cherrypy.expose
     @isAuthorized
     def donelist(self):
-        todos = dal.gettodos(user.getUserId(), 1)
+        tdl = todolist.todoList()
+        todos = tdl.gettodos(user.getUserId(), 1)
+        tdl.close()    
     
         return layout.getDoneTodos(todos)
     
@@ -30,7 +36,9 @@ class queuetodo(object):
     @isAuthorized
     def addtodo(self, todoname=None):
         if not todoname == None:
-            dal.addtodo(int(user.getUserId()), todoname)
+            td = todo.todo()
+            td.addtodo(int(user.getUserId()), todoname)
+            td.close()
     
         return layout.getAddTodo()
     
@@ -74,7 +82,9 @@ class queuetodo(object):
     @isAuthorized
     def setdone(self, todoid=None):
         if not todoid == None:
-            dal.setdonestatus(int(todoid))
+            td = todo.todo()
+            td.setdonestatus(int(todoid))
+            td.close()
 
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), 'queuetodo.conf')
