@@ -1,5 +1,6 @@
 import psycopg2
-import constants
+
+from . import constants
 
 
 class base(object):
