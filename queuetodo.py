@@ -21,8 +21,9 @@ class queuetodo(object):
         tdl = todolist.todoList()
         todos = tdl.getmy(user.getUserId())
         tdl.close()
+        frs = friends.getfriends()
     
-        return layout.getInitTodos(todos)
+        return layout.getInitTodos(todos, frs)
             
     @cherrypy.expose
     @isAuthorized
@@ -86,17 +87,6 @@ class queuetodo(object):
             td = todo.todo()
             td.setdonestatus(int(todoid))
             td.close()
-            
-    @cherrypy.expose
-    @isAuthorized
-    def getfriends(self):
-        frs = friends.getfriends()
-        out = ""
-        
-        for f in frs["data"]:
-            out += f["name"] + ", "
-            
-        return out
 
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), "queuetodo.conf")
