@@ -18,7 +18,7 @@ class queuetodo(object):
     @isAuthorized
     def index(self):
         tdl = todolist.todoList()
-        todos = tdl.getmytodos(user.getUserId())
+        todos = tdl.getmy(user.getUserId())
         tdl.close()
     
         return layout.getInitTodos(todos)
@@ -27,7 +27,7 @@ class queuetodo(object):
     @isAuthorized
     def donelist(self):
         tdl = todolist.todoList()
-        todos = tdl.gettodos(user.getUserId(), 1)
+        todos = tdl.get(user.getUserId(), 1)
         tdl.close()    
     
         return layout.getDoneTodos(todos)
