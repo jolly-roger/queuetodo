@@ -60,6 +60,7 @@ def getMainMenu():
         return "&nbsp;<a href=\"/\">home</a>" \
             "&nbsp;<a href=\"/addtodo\">add todo</a>" \
             "&nbsp;<a href=\"/shared\">shared</a>" \
+            "&nbsp;<a href=\"/sharedwithme\">shared with me</a>" \
             "&nbsp;<a href=\"/logout\">logout</a>"
     else:
         return "&nbsp;<a href=\"/signin\">signin</a>"
@@ -83,6 +84,9 @@ def getInitTodos(todos, friends):
     
 def getDoneTodos(todos):
     return getTodoList(todos, None, "Done")
+    
+def getSharedWithMeTodos(todos):
+    return getTodoList(todos, None, "Shared With Me")
     
 def getSharedTodos(todos):
     return getTodoList(todos, None, "Shared")

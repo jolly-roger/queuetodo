@@ -36,9 +36,18 @@ class queuetodo(object):
         
     @cherrypy.expose
     @isAuthorized
-    def shared(self):
+    def sharedwithme(self):
         tdl = todolist.todoList()
         todos = tdl.getsharedwithme(user.getUserId())
+        tdl.close()    
+    
+        return layout.getSharedWithMeTodos(todos)
+        
+    @cherrypy.expose
+    @isAuthorized
+    def shared(self):
+        tdl = todolist.todoList()
+        todos = tdl.getshared(user.getUserId())
         tdl.close()    
     
         return layout.getSharedTodos(todos)

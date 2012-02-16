@@ -17,6 +17,13 @@ class todoList(base.base):
         todos = self.cur.fetchall()
         
         return todos
+    
+    def getsharedwithme(self, userid):
+        getsharedtodos = "select * from getsharedtodos(%s);"
+        self.cur.execute(getsharedtodos, (userid,))
+        todos = self.cur.fetchall()
+        
+        return todos
         
     def get(self, userid, statusid):
         getusertodos = "select * from getusertodos(%s, %s);"
