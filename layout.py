@@ -17,31 +17,7 @@ HEADER = "<!DOCTYPE html>" \
     "<html>" \
         "<head>" \
             "<script type=\"text/javascript\" src=\"/javascript\"></script>" \
-            "<style>" \
-                ".todo.over {" \
-                    "border-top: 2px dashed #000;" \
-                "}" \
-                "* {margin: 0;}" \
-                "html, body {height: 100%;}" \
-                "#wrap {" \
-                    "min-height: 100%;" \
-                    "height: auto !important;" \
-                    "height: 100%;" \
-                    "margin: 0 auto -100px;" \
-                "}" \
-                "#footer, .push {" \
-                    "height: 100px;" \
-                "}" \
-                "#footer {" \
-                    "background: #B5C1C0;" \
-                    "padding: 10px;"\
-                "}" \
-                "#donebasket {"\
-                    "height: 80px;"\
-                    "width: 80px;"\
-                    "background: #ffffff;"\
-                "}" \
-            "</style>" \
+            "<link rel=\"stylesheet\" type=\"text/css\" href=\"/css\" />" \
         "</head>" \
             "<body>" \
                 "<div id=\"wrap\">"

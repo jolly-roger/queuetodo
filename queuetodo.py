@@ -95,6 +95,12 @@ class queuetodo(object):
         return js
     
     @cherrypy.expose
+    def css(self):
+        style = open(constants.BASE_DIR + "css/style.css").read()
+        
+        return style
+    
+    @cherrypy.expose
     def insertbefore(self, todoid, beforeid):
         pass
     
