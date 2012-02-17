@@ -95,7 +95,7 @@ class queuetodo(object):
         return js
     
     @cherrypy.expose
-    def css(self):
+    def style_css(self):
         style = open(constants.BASE_DIR + "css/style.css").read()
         
         return style
