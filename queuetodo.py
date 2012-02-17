@@ -87,6 +87,8 @@ class queuetodo(object):
             
     @cherrypy.expose
     def javascript(self):
+        cherrypy.response.headers['Content-Type'] = "text/javascript"        
+        
         mochikit = open(constants.BASE_DIR + "javascript/mochikit/MochiKit.js").read()
         consts= open(constants.BASE_DIR + "javascript/constants.js").read()
         dnd = open(constants.BASE_DIR + "javascript/dnd.js").read()
@@ -95,7 +97,9 @@ class queuetodo(object):
         return js
     
     @cherrypy.expose
-    def style_css(self):
+    def css(self):
+        cherrypy.response.headers['Content-Type'] = "text/css"
+        
         style = open(constants.BASE_DIR + "css/style.css").read()
         
         return style

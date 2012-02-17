@@ -17,7 +17,7 @@ HEADER = "<!DOCTYPE html>" \
     "<html>" \
         "<head>" \
             "<script type=\"text/javascript\" src=\"/javascript\"></script>" \
-            "<link rel=\"stylesheet\" type=\"text/css\" href=\"/style.css\" charset=\"UTF-8\" />" \
+            "<link rel=\"stylesheet\" type=\"text/css\" href=\"/css\" />" \
         "</head>" \
             "<body>" \
                 "<div id=\"wrap\">"
