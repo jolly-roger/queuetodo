@@ -6,7 +6,7 @@
                 <h3>{{title}}</h3>
                 {% for todo in todos %}
                     <div class="todo" >
-                        <input type="hidden" class="todoid" value="{{str(todo[0])}}" />
+                        <input type="hidden" class="todoid" value="{{todo[0]}}" />
                         {{todo[1]}}
                     </div>
                 {% endfor %}
