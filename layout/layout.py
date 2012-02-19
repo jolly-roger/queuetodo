@@ -4,36 +4,8 @@ from facebook import authorization
 
 from jinja2 import Environment, FileSystemLoader
 
+
 env = Environment(loader=FileSystemLoader('layout/templates'))
-
-
-#INDEX_HEADER = "<!DOCTYPE html>" \
-#    "<html>" \
-#        "<head>" \
-#        "</head>" \
-#            "<body>" \
-#
-#INDEX_FOOTER = "</body>" \
-#    "</html>"
-#
-#
-#HEADER = "<!DOCTYPE html>" \
-#    "<html>" \
-#        "<head>" \
-#            "<script type=\"text/javascript\" src=\"/javascript\"></script>" \
-#            "<link rel=\"stylesheet\" type=\"text/css\" href=\"/css\" />" \
-#        "</head>" \
-#            "<body>" \
-#                "<div id=\"wrap\">"
-#
-#FOOTER = "<div class=\"push\">" \
-#                "</div>" \
-#            "</div>" \
-#            "<div id=\"footer\">" \
-#                "<div id=\"donebasket\"><a href=\"/donelist\">Done basket</a></div>" \
-#            "</div>"\
-#        "</body>" \
-#    "</html>"
 
 def getMainMenu():
     if authorization.isAuthorized():
@@ -49,11 +21,7 @@ def getIndex():
     tmpl = env.get_template('baseEmpty.html')
     
     return tmpl.render(content = getMainMenu())
-    
-    #return INDEX_HEADER \
-    #            + getMainMenu() + \
-    #    INDEX_FOOTER
-        
+
 def getAddTodo():
     tmpl = env.get_template('base.html')
     
@@ -62,16 +30,7 @@ def getAddTodo():
             <textarea rows=\"5\" cols=\"50\" name="todoname"></textarea>
             <input type="submit" value="Add"/>
         </form>''')
-    
-    
-    #return HEADER \
-    #            + getMainMenu() + \
-    #            '''<form action="/addtodo" method="post">
-    #                <textarea rows=\"5\" cols=\"50\" name="todoname"></textarea>
-    #                <input type="submit" value="Add"/>
-    #            </form>''' + \
-    #    FOOTER
-        
+
 def getInitTodos(todos, friends):
     return getTodoList(todos, friends, "Current")
     
@@ -107,24 +66,4 @@ def getTodoList(todos, friends, title):
         todoslayout + \
         "</td><td>" + \
         friendslayout + \
-        "</td></tr></table>")    
-    
-    #return  HEADER + \
-    #    getMainMenu() + \
-    #    "<table><tr><td valign=\"top\">" + \
-    #    "<h3>" + title + "</h3>" + \
-    #    todoslayout + \
-    #    "</td><td>" + \
-    #    friendslayout + \
-    #    "</td></tr></table>" + \
-    #    FOOTER
-    
-
-#import cherrypy
-
-#
-#class Root:
-#    @cherrypy.expose
-#    def index(self):
-#        tmpl = env.get_template('index.html')
-#        return tmpl.render(salutation='Hello', target='World')
+        "</td></tr></table>")
