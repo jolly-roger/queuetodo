@@ -8,15 +8,6 @@ from jinja2 import Environment, FileSystemLoader
 
 env = Environment(loader = FileSystemLoader(constants.BASE_DIR + "layout/templates"))
 
-#def getMainMenu():
-#    if authorization.isAuthorized():
-#        return "&nbsp;<a href=\"/\">home</a>" \
-#            "&nbsp;<a href=\"/addtodo\">add todo</a>" \
-#            "&nbsp;<a href=\"/shared\">shared</a>" \
-#            "&nbsp;<a href=\"/sharedwithme\">shared with me</a>" \
-#            "&nbsp;<a href=\"/logout\">logout</a>"
-#    else:
-#        return "&nbsp;<a href=\"/signin\">signin</a>"
 
 def getSignin():
     tmpl = env.get_template("signin.html")

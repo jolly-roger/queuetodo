@@ -10,7 +10,9 @@
     &nbsp;<a href="/sharedwithme">shared with me</a>
     &nbsp;<a href="/logout">logout</a>
     <div id="wrap">
-        {{ content }}
+        {% block content %}
+            {{ content }}
+        {% endblock %}
         <div class="push">
         </div>
     </div>
