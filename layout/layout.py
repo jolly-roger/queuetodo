@@ -42,11 +42,6 @@ def getTodoList(todos, friends, title):
                 "<input type=\"hidden\" class=\"friendid\" value=\"" + friend["id"] + "\" />" + \
                 friend["name"] + "</div>"
     
-    tmpl = env.get_template("base.html")
+    tmpl = env.get_template("todoList.html")
     
-    return tmpl.render(content = "<table><tr><td valign=\"top\">" + \
-        "<h3>" + title + "</h3>" + \
-        todoslayout + \
-        "</td><td>" + \
-        friendslayout + \
-        "</td></tr></table>")
+    return tmpl.render(title = title, todoslayout = todoslayout, friendslayout = friendslayout)
