@@ -1,6 +1,5 @@
 import cherrypy
 import os.path
-import layout
 import constants
 
 from isAuthorized import isAuthorized
@@ -12,6 +11,8 @@ from facebook import friends
 
 from dal import todo
 from dal import todolist
+
+from layout import layout
 
 
 class queuetodo(object):
