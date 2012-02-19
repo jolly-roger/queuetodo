@@ -1,11 +1,12 @@
 import cherrypy
+import constants
 
 from facebook import authorization
 
 from jinja2 import Environment, FileSystemLoader
 
 
-env = Environment(loader=FileSystemLoader('layout/templates'))
+env = Environment(loader = FileSystemLoader(constants.BASE_DIR + "layout/templates"))
 
 def getMainMenu():
     if authorization.isAuthorized():
