@@ -6,7 +6,7 @@ from layout import layout
 def isAuthorized(f):
     def _isAuthorized(*args, **kwargs):
         if not authorization.isAuthorized():
-            return layout.getIndex()
+            return layout.getSignin()
         else:
             authorization.checkAuthorization()
             
