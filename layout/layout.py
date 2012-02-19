@@ -26,7 +26,7 @@ def getIndex():
 def getAddTodo():
     tmpl = env.get_template('base.html')
     
-    return tmpl.render(content = etMainMenu() + \
+    return tmpl.render(content = getMainMenu() + \
         '''<form action="/addtodo" method="post">
             <textarea rows=\"5\" cols=\"50\" name="todoname"></textarea>
             <input type="submit" value="Add"/>
