@@ -4,10 +4,22 @@
         <tr>
             <td valign="top">
                 <h3>{{title}}</h3>
-                {{todoslayout}}
+                {% for todo in todos %}
+                    <div class="todo" >
+                        <input type="hidden" class="todoid" value="{{str(todo[0])}}" />
+                        {{todo[1]}}
+                    </div>
+                {% endfor %}
             </td>
             <td>
-                {{friendslayout}}
+                {% if not friends == None %}
+                    {%for friend in friends["data"] %}
+                        <div class="friend" >
+                            <input type="hidden" class="friendid" value="{{friend["id"]}}" />
+                            {{friend["name"]}}
+                        </div>
+                    {% endfor %}
+                {% endif%}
             </td>
         </tr>
     </table>
