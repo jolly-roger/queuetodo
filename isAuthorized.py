@@ -1,7 +1,6 @@
-import layout
-
-
 from facebook import authorization
+
+from layout import layout
 
 
 def isAuthorized(f):
