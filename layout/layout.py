@@ -1,8 +1,6 @@
 import cherrypy
 import constants
 
-from facebook import authorization
-
 from jinja2 import Environment, FileSystemLoader
 
 
@@ -11,16 +9,11 @@ env = Environment(loader = FileSystemLoader(constants.BASE_DIR + "layout/templat
 
 def getSignin():
     tmpl = env.get_template("signin.html")
-    
     return tmpl.render()
 
 def getAddTodo():
-    tmpl = env.get_template("base.html")
-    
-    return tmpl.render(content = '''<form action="/addtodo" method="post">
-            <textarea rows=\"5\" cols=\"50\" name="todoname"></textarea>
-            <input type="submit" value="Add"/>
-        </form>''')
+    tmpl = env.get_template("addTodo.html")
+    return tmpl.render()
 
 def getInitTodos(todos, friends):
     return getTodoList(todos, friends, "Current")

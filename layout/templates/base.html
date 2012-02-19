@@ -16,7 +16,9 @@
         <div class="push">
         </div>
     </div>
-    <div id="footer">
-        <div id="donebasket"><a href="/donelist">Done basket</a></div>
-    </div>
+    {% block footer %}
+        <div id="footer">
+            <div id="donebasket"><a href="/donelist">Done basket</a></div>
+        </div>
+    {% endblock %}
 {% endblock %}
