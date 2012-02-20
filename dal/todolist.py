@@ -2,7 +2,7 @@ from . import base
 from . import constants
 
 class todoList(base.base):
-    def __iadd__(self):
+    def __init__(self):
         base.base.__init__(self)
     
     def getmy(self, userid):

@@ -14,6 +14,15 @@
                     <td></td>
                     <td id="statusNmae">
                         {% if statuses is defined %}
+                            <select>
+                                {% for status in statuses %}
+                                    <option
+                                        {% if todo[3] == status[1] %}
+                                            selected="selected"
+                                        {% endif %}
+                                        value="{{status[0]}}">{{status[1]}}</option>
+                                {% endfor %}
+                            </select>
                         {% else %}
                             {{todo[3]}}
                         {% endif%}

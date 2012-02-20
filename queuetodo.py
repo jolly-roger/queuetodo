@@ -11,6 +11,7 @@ from facebook import friends
 
 from dal import todo
 from dal import todolist
+from dal import status
 
 from layout import layout
 
@@ -23,8 +24,11 @@ class queuetodo(object):
         todos = tdl.getmy(user.getUserId())
         tdl.close()
         frs = friends.getfriends()
+        st = status.status()
+        sts = st.getall()
+        st.close()
     
-        return layout.getInitTodos(todos, frs)
+        return layout.getMyTodos(todos, frs, sts)
             
     @cherrypy.expose
     @isAuthorized
