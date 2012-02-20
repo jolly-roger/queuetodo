@@ -26,15 +26,4 @@ addLoadEvent(function(){
     for(var i = 0; i < friends.length; i ++){
         new Draggable(friends[i], {revert: true});
     };
-    
-    new Droppable('donebasket', {
-        ondrop: function (element) {
-            var parentEl = element.parentElement;
-            parentEl.removeChild(element);
-            var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=element);
-            if(todoidelement && todoidelement.value){
-                doSimpleXMLHttpRequest("http://" + HOST + "/setdone/" + todoidelement.value + "/");
-            };
-        }
-    });
 });
