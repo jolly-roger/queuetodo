@@ -13,8 +13,7 @@
                 <tr>
                     <td></td>
                     <td id="statusNmae">
-                        {{statuses}}
-                        {% if not statuses == None %}
+                        {% if statuses is defined %}
                         {% else %}
                             {{todo[3]}}
                         {% endif%}
@@ -25,7 +24,7 @@
     {% endfor %}
 {% endblock %}
 {% block extra %}
-    {% if not friends == None %}
+    {% if friends is defined %}
         {%for friend in friends["data"] %}
             <div class="friend" >
                 <input type="hidden" class="friendid" value="{{friend["id"]}}" />
