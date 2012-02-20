@@ -4,7 +4,7 @@
     {% for todo in todos %}
         <div class="todo" >
             <input type="hidden" class="todoid" value="{{todo[0]}}" />
-            <table>
+            <table id="todoData">
                 <tr>
                     <td colspan="2">
                         {{todo[1]}}    

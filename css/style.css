@@ -34,6 +34,10 @@ td#statusNmae{
     width: 50px;
 }
 
+table#todoData{
+    width: 100%;
+}
+
 .todo {
     border: 2px solid #4096EE;
     width: 100%;
