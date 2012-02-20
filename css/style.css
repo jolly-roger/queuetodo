@@ -30,6 +30,10 @@ div#navigation{float:right;width:300px}
 div#extra{float:right;clear:right;width:300px}
 div#footer{clear:both;width:100%}
 
+td#statusNmae{
+    width: 50px;
+}
+
 .todo {
     border: 2px solid #4096EE;
     width: 100%;
