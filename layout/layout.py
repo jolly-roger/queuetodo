@@ -28,6 +28,5 @@ def getSharedTodos(todos):
     return getTodoList(todos, None, "Shared")
 
 def getTodoList(todos, friends, title):
-    tmpl = env.get_template("todoList.html")
-    
+    tmpl = env.get_template("todoList.html")    
     return tmpl.render(title = title, todos = todos, friends = friends)

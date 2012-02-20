@@ -21,3 +21,11 @@ html, body {height: 100%;}
     width: 80px;
     background: #ffffff;
 }
+
+.todo {
+    border: 2px solid #4096EE;
+    height: 50px;
+    width: 200px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
