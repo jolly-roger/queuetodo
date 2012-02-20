@@ -1,26 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-    <table>
-        <tr>
-            <td valign="top">
-                <h3>{{title}}</h3>
-                {% for todo in todos %}
-                    <div class="todo" >
-                        <input type="hidden" class="todoid" value="{{todo[0]}}" />
-                        {{todo[1]}}
-                    </div>
-                {% endfor %}
-            </td>
-            <td>
-                {% if not friends == None %}
-                    {%for friend in friends["data"] %}
-                        <div class="friend" >
-                            <input type="hidden" class="friendid" value="{{friend["id"]}}" />
-                            {{friend["name"]}}
-                        </div>
-                    {% endfor %}
-                {% endif%}
-            </td>
-        </tr>
-    </table>
+    <h3>{{title}}</h3>
+    {% for todo in todos %}
+        <div class="todo" >
+            <input type="hidden" class="todoid" value="{{todo[0]}}" />
+            {{todo[1]}}
+        </div>
+    {% endfor %}
+{% endblock %}
+{% block navigation %}
+    {% if not friends == None %}
+        {%for friend in friends["data"] %}
+            <div class="friend" >
+                <input type="hidden" class="friendid" value="{{friend["id"]}}" />
+                {{friend["name"]}}
+            </div>
+        {% endfor %}
+    {% endif%}
 {% endblock %}
