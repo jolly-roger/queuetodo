@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3>{{title}}</h3>
     {% for todo in todos %}
         <div class="todo" >
             <input type="hidden" class="todoid" value="{{todo[0]}}" />

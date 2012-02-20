@@ -17,10 +17,7 @@ def getAddTodo():
     
 def getMyTodos(todos, friends, statuses):
     tmpl = env.get_template("todoList.html")    
-    return tmpl.render(title = "Current", todos = todos, friends = friends, statuses = statuses)
-
-def getInitTodos(todos, friends):
-    return getTodoList(todos, friends, "Current")
+    return tmpl.render(todos = todos, friends = friends, statuses = statuses)
     
 def getDoneTodos(todos):
     return getTodoList(todos, None, "Done")
