@@ -32,8 +32,8 @@ div#footer{clear:both;width:100%}
 
 .todo {
     border: 2px solid #4096EE;
-    height: 50px;
     width: 100%;
+    margin-bottom: 2px;
     -moz-border-radius: 10px;
     border-radius: 10px;
 }
