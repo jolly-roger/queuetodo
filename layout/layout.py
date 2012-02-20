@@ -14,6 +14,10 @@ def getSignin():
 def getAddTodo():
     tmpl = env.get_template("addTodo.html")
     return tmpl.render()
+    
+def getMytodos(todos, friends, statuses):
+    tmpl = env.get_template("todoList.html")    
+    return tmpl.render(title = title, todos = todos, friends = friends, statuses = statuses)
 
 def getInitTodos(todos, friends):
     return getTodoList(todos, friends, "Current")

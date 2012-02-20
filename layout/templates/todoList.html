@@ -13,7 +13,10 @@
                 <tr>
                     <td></td>
                     <td id="statusNmae">
-                        {{todo[3]}}
+                        {% if not statuses == None %}
+                        {% else %}
+                            {{todo[3]}}
+                        {% endif%}
                     </td>
                 </tr>
             </table>
