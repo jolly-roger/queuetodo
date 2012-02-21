@@ -29,8 +29,8 @@ addLoadEvent(function(){
     
     var statusSelectors = getElementsByTagAndClassName("select", "statusSelector");
     for(var i = 0; i < statusSelectors.length; i ++){
-        connect("statusSelector", "onchange", statusSelectors[i], function(e){
+        statusSelectors[i].onchange = function(e){
             alert("Yo!!!");
-        });
+        };
     };
 });
