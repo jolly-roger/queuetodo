@@ -28,7 +28,7 @@ class queuetodo(object):
         sts = st.getall()
         st.close()
     
-        return layout.getMyTodos(todos, frs, sts, statusid)
+        return layout.getMyTodos(todos, frs, sts, int(statusid))
 
 
     @cherrypy.expose
