@@ -38,6 +38,6 @@ addLoadEvent(function(){
     };
     
     $("statusFilter").onchange = function(e){
-        window.location = "http://" + HOST + "/" + e.target.options[e.target.selectedIndex].value + "/";
+        window.location = "http://" + HOST + "/index/" + e.target.options[e.target.selectedIndex].value + "/";
     };
 });
