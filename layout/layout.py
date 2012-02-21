@@ -15,9 +15,9 @@ def getAddTodo():
     tmpl = env.get_template("addTodo.html")
     return tmpl.render()
     
-def getMyTodos(todos, friends, statuses):
+def getMyTodos(todos, friends, statuses, statusid):
     tmpl = env.get_template("todoList.html")    
-    return tmpl.render(todos = todos, friends = friends, statuses = statuses)
+    return tmpl.render(todos = todos, friends = friends, statuses = statuses, statusid = statusid)
     
 def getSharedWithMeTodos(todos):
     return getTodoList(todos, None, "Shared With Me")

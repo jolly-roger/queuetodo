@@ -31,6 +31,17 @@
         </div>
     {% endfor %}
 {% endblock %}
+{% block navigation %}
+    <select>
+        {% for status in statuses %}
+            <option
+                {% if statusid == status[1] %}
+                    selected="selected"
+                {% endif %}
+                value="{{status[0]}}">{{status[1]}}</option>
+        {% endfor %}
+    </select>
+{% endblock %}
 {% block extra %}
     {% if friends is defined %}
         {%for friend in friends["data"] %}
