@@ -37,7 +37,7 @@ addLoadEvent(function(){
         new Draggable(friends[i], {revert: true});
     };
     
-    connect("statusFilter", "onchange", function(e){
+    $("statusFilter").onchange = function(e){
         window.location = "http://" + HOST + "/" + e.target.options[e.target.selectedIndex].value + "/";
-    });
+    };
 });
