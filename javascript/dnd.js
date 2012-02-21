@@ -21,27 +21,19 @@ addLoadEvent(function(){
             })(i)
         });
         var statusSelector = getFirstElementByTagAndClassName("select", "statusSelector", parent=todos[i]);
-        statusSelector.onchange = (function(index){
-            return function(e){
-                var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=todos[index]);
-                doSimpleXMLHttpRequest("http://" + HOST + "/setstatus/" + todoidelement.value + "/" +
-                e.target.options[e.target.selectedIndex].value + "/");
-            };
-        })(i);
+        if(statusSelector){
+            statusSelector.onchange = (function(index){
+                return function(e){
+                    var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=todos[index]);
+                    doSimpleXMLHttpRequest("http://" + HOST + "/setstatus/" + todoidelement.value + "/" +
+                    e.target.options[e.target.selectedIndex].value + "/");
+                };
+            })(i);
+        };
     };
     
     var friends = getElementsByTagAndClassName("div", "friend");
     for(var i = 0; i < friends.length; i ++){
         new Draggable(friends[i], {revert: true});
     };
-    
-    //var statusSelectors = getElementsByTagAndClassName("select", "statusSelector");
-    //for(var i = 0; i < statusSelectors.length; i ++){
-    //    statusSelectors[i].onchange = function(e){
-    //        
-    //        
-    //        doSimpleXMLHttpRequest("http://" + HOST + "/setstatus/" + todoidelement.value + "/" +
-    //            friendidelement.value + "/");
-    //    };
-    //};
 });
