@@ -27,7 +27,10 @@ addLoadEvent(function(){
         new Draggable(friends[i], {revert: true});
     };
     
-    connect("statusSelector", "onchange", function(e){
-        alert("Yo!!!");
-    });
+    var statusSelectors = getElementsByTagAndClassName("select", "statusSelector");
+    for(var i = 0; i < statusSelectors.length; i ++){
+        connect("statusSelector", "onchange", statusSelectors[i], function(e){
+            alert("Yo!!!");
+        });
+    };
 });

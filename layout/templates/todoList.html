@@ -13,7 +13,7 @@
                     <td></td>
                     <td id="statusNmae">
                         {% if statuses is defined %}
-                            <select id="statusSelector">
+                            <select id="statusSelector" class="statusSelector">
                                 {% for status in statuses %}
                                     <option
                                         {% if todo[3] == status[1] %}
