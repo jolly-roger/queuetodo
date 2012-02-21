@@ -1,10 +1,13 @@
-CREATE OR REPLACE FUNCTION getmytodos(userid bigint)
-returns table (
+create type todo_status as (
     id_todo integer,
     name varchar(256),
     status_id integer,
     status_name varchar(50)
-)
+);
+
+
+CREATE OR REPLACE FUNCTION getmytodos(userid bigint)
+returns setof todo_status
 AS
 $BODY$
 BEGIN

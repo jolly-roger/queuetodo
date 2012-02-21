@@ -26,4 +26,8 @@ addLoadEvent(function(){
     for(var i = 0; i < friends.length; i ++){
         new Draggable(friends[i], {revert: true});
     };
+    
+    connect("statusSelector", "onchange", function(e){
+        alert("Yo!!!");
+    });
 });

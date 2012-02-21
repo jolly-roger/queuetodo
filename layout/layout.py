@@ -19,9 +19,6 @@ def getMyTodos(todos, friends, statuses):
     tmpl = env.get_template("todoList.html")    
     return tmpl.render(todos = todos, friends = friends, statuses = statuses)
     
-def getDoneTodos(todos):
-    return getTodoList(todos, None, "Done")
-    
 def getSharedWithMeTodos(todos):
     return getTodoList(todos, None, "Shared With Me")
     

@@ -16,6 +16,10 @@ class todo(base.base):
     def insertbefore(self, todoid, beforeid):
         pass
     
+    def setstatus(self, todoid, statusid):
+        self.cur.execute(constants.SET_STATUS, {"todoid": todoid, "statusid": statusid})
+        self.conn.commit()
+    
     def setdonestatus(self, todoid): 
         self.cur.execute(constants.SET_DONE_STATUS, {"todoid": todoid})
         self.conn.commit()

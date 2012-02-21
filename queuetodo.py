@@ -19,7 +19,7 @@ from layout import layout
 class queuetodo(object):
     @cherrypy.expose
     @isAuthorized
-    def index(self):
+    def index(self, status = None):
         tdl = todolist.todoList()
         todos = tdl.getmy(user.getUserId())
         tdl.close()
@@ -29,16 +29,8 @@ class queuetodo(object):
         st.close()
     
         return layout.getMyTodos(todos, frs, sts)
-            
-    @cherrypy.expose
-    @isAuthorized
-    def donelist(self):
-        tdl = todolist.todoList()
-        todos = tdl.get(user.getUserId(), 1)
-        tdl.close()    
-    
-        return layout.getDoneTodos(todos)
-        
+
+
     @cherrypy.expose
     @isAuthorized
     def sharedwithme(self):
@@ -128,6 +120,14 @@ class queuetodo(object):
             td = todo.todo()
             td.share(int(todoid), int(friendid))
             td.close()
+            
+    @cherrypy.expose
+    @isAuthorized
+    def setstatus(self, todoid, statusid):
+        if not todoid == None and not statusid == None:
+            td = todo.todo()
+            td.setstatus(int(todoid), int(statusid))
+            tc.close()
 
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), "queuetodo.conf")
