@@ -32,7 +32,7 @@
     {% endfor %}
 {% endblock %}
 {% block navigation %}
-    <select id="statusFilter">
+    Todo status filter&nbsp;<select id="statusFilter">
         {% for status in statuses %}
             <option
                 {% if statusid == status[0] %}
