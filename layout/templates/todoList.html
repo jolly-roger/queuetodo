@@ -35,7 +35,7 @@
     <select id="statusFilter">
         {% for status in statuses %}
             <option
-                {% if statusid == status[1] %}
+                {% if statusid == status[0] %}
                     selected="selected"
                 {% endif %}
                 value="{{status[0]}}">{{status[1]}}</option>
