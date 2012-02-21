@@ -6,7 +6,7 @@ class todoList(base.base):
         base.base.__init__(self)
     
     def getmy(self, userid):
-        self.cur.execute(constants.GET_MY_TODOS, {"userid": userid})
+        self.cur.execute(constants.GET_MY_TODOS, {"userid": userid, "statusid": statusid})
         todos = self.cur.fetchall()
         
         return todos

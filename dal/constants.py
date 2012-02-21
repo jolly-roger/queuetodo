@@ -1,6 +1,6 @@
 DB_CONNECTION = 'dbname=queuetodo user=queuetodo password=6@,^K&=o'
 
-GET_MY_TODOS = "select * from getmytodos(%(userid)s);"
+GET_MY_TODOS = "select * from getmytodos(%(userid)s, %(statusid)s);"
 GET_SHARED_WITH_ME_TODOS = "select * from getsharedwithmetodos(%(userid)s);"
 GET_SHARED_TODOS = "select * from getsharedtodos(%(userid)s);"
 GET_USER_TODOS = "select * from getusertodos(%(userid)s, %(statusid)s);"

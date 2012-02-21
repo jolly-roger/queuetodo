@@ -21,7 +21,7 @@ class queuetodo(object):
     @isAuthorized
     def index(self, statusid = 1):
         tdl = todolist.todoList()
-        todos = tdl.getmy(user.getUserId())
+        todos = tdl.getmy(user.getUserId(), statusid)
         tdl.close()
         frs = friends.getfriends()
         st = status.status()
