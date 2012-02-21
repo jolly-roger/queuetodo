@@ -127,7 +127,7 @@ class queuetodo(object):
         if not todoid == None and not statusid == None:
             td = todo.todo()
             td.setstatus(int(todoid), int(statusid))
-            tc.close()
+            td.close()
 
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), "queuetodo.conf")
