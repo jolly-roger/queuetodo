@@ -5,17 +5,18 @@
             <input type="hidden" class="todoid" value="{{todo[0]}}" />
             <table id="todoData">
                 <tr>
-                    <td colspan="2">
+                    <td colspan="3">
                         {{todo[1]}}    
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td></td>
+                    <td id="isShared">
                         {% if todo[4] %}
                             shared
                         {% endif %}
                     </td>
-                    <td id="statusNmae">
+                    <td id="statusName">
                         {% if statuses is defined %}
                             <select id="statusSelector" class="statusSelector">
                                 {% for status in statuses %}

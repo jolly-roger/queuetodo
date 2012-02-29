@@ -30,7 +30,11 @@ div#navigation{float:right;width:300px}
 div#extra{float:right;clear:right;width:300px}
 div#footer{clear:both;width:100%}
 
-td#statusNmae{
+td#statusName{
+    width: 80px;
+}
+
+td#isShared{
     width: 50px;
 }
 
