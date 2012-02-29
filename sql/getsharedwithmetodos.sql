@@ -3,8 +3,7 @@ returns setof todo_status
 AS
 $BODY$
 BEGIN
-    return query select t.id_todo, t.name, t.status_id, s.name as status_name,
-            (select * from isshared(t.id_todo)) as is_shared
+    return query select t.id_todo, t.name, t.status_id, s.name as status_name, t.is_shared
         from todo as t
         inner join status as s
             on t.status_id = s.id_status
