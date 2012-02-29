@@ -10,7 +10,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td>
+                        {% if todo[4] %}
+                            shared
+                        {% endif %}
+                    </td>
                     <td id="statusNmae">
                         {% if statuses is defined %}
                             <select id="statusSelector" class="statusSelector">
