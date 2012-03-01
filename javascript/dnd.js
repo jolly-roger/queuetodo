@@ -27,6 +27,7 @@ addLoadEvent(function(){
                     var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=todos[index]);
                     doSimpleXMLHttpRequest("http://" + HOST + "/setstatus/" + todoidelement.value + "/" +
                     e.target.options[e.target.selectedIndex].value + "/");
+                    removeElement(todos[index]);
                 };
             })(i);
         };
