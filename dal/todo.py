@@ -13,8 +13,9 @@ class todo(base.base):
         self.cur.execute(constants.SHARE_TODO, {"todoid": todoid, "friendid": friendid})
         self.conn.commit()
     
-    def insertbefore(self, todoid, beforeid):
-        pass
+    def setpriority(self, todoid, todopriority):
+        self.cur.execute(constants.SET_PRIORITY, {"todoid": todoid, "todopriority": todopriority})
+        self.conn.commit()
     
     def setstatus(self, todoid, statusid):
         self.cur.execute(constants.SET_STATUS, {"todoid": todoid, "statusid": statusid})

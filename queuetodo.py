@@ -102,8 +102,11 @@ class queuetodo(object):
         return style
     
     @cherrypy.expose
-    def setpriority(self, todoid, priority):
-        pass
+    def setpriority(self, todoid, todopriority):
+        if not todoid == None and not todopriority == None:
+            td = todo.todo()
+            td.setpriority(int(todoid), int(todopriority))
+            td.close()
             
     @cherrypy.expose
     @isAuthorized
