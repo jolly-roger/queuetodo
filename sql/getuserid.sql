@@ -7,7 +7,7 @@ BEGIN
         insert into "user"(facebook_user_id) values(facebookuserid);
     end if;
     
-    select into local_id_user * from "user" where facebook_user_id = facebookuserid limit 1;
+    select into local_id_user id_user from "user" where facebook_user_id = facebookuserid limit 1;
     
     return local_id_user;
 END;

@@ -1,3 +1,12 @@
+create or replace type todo_status as (
+    id_todo integer,
+    name varchar(256),
+    status_id integer,
+    status_name varchar(50),
+    is_shared boolean
+);
+
+
 CREATE OR REPLACE FUNCTION gettodos(userid bigint, statusid bigint, isowner boolean, excludestatus boolean,
     isshared boolean, excludeisshared boolean)
 returns setof todo_status
