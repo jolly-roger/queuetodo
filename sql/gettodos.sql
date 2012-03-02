@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION gettodos(userid bigint, statusid bigint, isowner boolean, excludestatus boolean,
-    isshared boolean)
+    isshared boolean, excludeisshared boolean)
 returns setof todo_status
 AS
 $BODY$
@@ -13,7 +13,7 @@ BEGIN
         inner join "user" as u
             on tu.user_id = u.id_user and u.facebook_user_id = userid
         where (case when excludestatus then t.status_id <> statusid else t.status_id = statusid end) and
-            t.is_shared = isshared
+            (case when excludeisshared then true else t.is_shared = isshared end)
         order by t.priority asc;
 END;
 $BODY$
