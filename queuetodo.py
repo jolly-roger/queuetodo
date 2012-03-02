@@ -102,7 +102,7 @@ class queuetodo(object):
         return style
     
     @cherrypy.expose
-    def setpriority(self, todoid, beforeid):
+    def setpriority(self, todoid, priority):
         pass
             
     @cherrypy.expose
