@@ -6,19 +6,19 @@ class todoList(base.base):
         base.base.__init__(self)
     
     def getmy(self, userid, statusid):
-        self.cur.execute(constants.GET_MY_TODOS, {"userid": userid, "statusid": statusid})
+        self.cur.execute(constants.GET_MY_TODOS, {"userid": userid, "statusid": statusid, "isowner": true})
         todos = self.cur.fetchall()
         
         return todos
     
     def getsharedwithme(self, userid):
-        self.cur.execute(constants.GET_SHARED_WITH_ME_TODOS, {"userid": userid})
+        self.cur.execute(constants.GET_SHARED_WITH_ME_TODOS, {"userid": userid, "statusid": 2, "isowner": false})
         todos = self.cur.fetchall()
         
         return todos
     
     def getshared(self, userid):
-        self.cur.execute(constants.GET_SHARED_TODOS, {"userid": userid})
+        self.cur.execute(constants.GET_SHARED_TODOS, {"userid": userid, "statusid": 2, "isowner": true})
         todos = self.cur.fetchall()
         
         return todos

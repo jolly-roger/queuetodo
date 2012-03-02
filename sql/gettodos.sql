@@ -1,13 +1,4 @@
-create or replace type todo_status as (
-    id_todo integer,
-    name varchar(256),
-    status_id integer,
-    status_name varchar(50),
-    is_shared boolean
-);
-
-
-CREATE OR REPLACE FUNCTION getmytodos(userid bigint, statusid bigint)
+CREATE OR REPLACE FUNCTION gettodos(userid bigint, statusid bigint, isowner boolean)
 returns setof todo_status
 AS
 $BODY$
@@ -17,7 +8,7 @@ BEGIN
         inner join status as s
             on t.status_id = s.id_status
         inner join todo_user as tu
-            on t.id_todo = tu.todo_id and tu.is_owner = true
+            on t.id_todo = tu.todo_id and tu.is_owner = isowner
         inner join "user" as u
             on tu.user_id = u.id_user and u.facebook_user_id = userid
         where t.status_id = statusid

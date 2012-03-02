@@ -3,7 +3,7 @@ $BODY$
 declare
     local_id_user bigint;
 BEGIN
-    if not (select true from "user" where facebook_user_id = facebookuserid) then
+    if not (case when (select true from "user" where facebook_user_id = facebookuserid limit 1) then true else false end) then
         insert into "user"(facebook_user_id) values(facebookuserid);
     end if;
     
