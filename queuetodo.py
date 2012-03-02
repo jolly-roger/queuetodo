@@ -104,14 +104,6 @@ class queuetodo(object):
     @cherrypy.expose
     def insertbefore(self, todoid, beforeid):
         pass
-    
-    @cherrypy.expose
-    @isAuthorized
-    def setdone(self, todoid=None):
-        if not todoid == None:
-            td = todo.todo()
-            td.setdonestatus(int(todoid))
-            td.close()
             
     @cherrypy.expose
     @isAuthorized
