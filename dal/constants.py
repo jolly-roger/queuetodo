@@ -1,7 +1,6 @@
 DB_CONNECTION = 'dbname=queuetodo user=queuetodo password=6@,^K&=o'
 
 GET_TODOS = "select * from gettodos(%(userid)s, %(statusid)s, %(isowner)s, %(excludestatus)s, %(isshared)s, %(excludeisshared)s);"
-GET_USER_TODOS = "select * from getusertodos(%(userid)s, %(statusid)s);"
 
 ADD_TODO = "select addtodo(%(todoname)s, %(userid)s);"
 SHARE_TODO = "select sharetodo(%(todoid)s, %(friendid)s);"

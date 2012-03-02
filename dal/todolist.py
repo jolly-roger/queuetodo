@@ -25,9 +25,3 @@ class todoList(base.base):
         todos = self.cur.fetchall()
         
         return todos
-        
-    def get(self, userid, statusid):
-        self.cur.execute(constants.GET_USER_TODOS, {"userid": userid, "statusid": statusid})
-        todos = self.cur.fetchall()
-        
-        return todos
