@@ -29,7 +29,7 @@ class todoList(base.base):
         
         return todos
     
-    def _getTodoList(rawtodos):
+    def _getTodoList(self, rawtodos):
         todos = []
         
         for rawtodo in rawtodos:
