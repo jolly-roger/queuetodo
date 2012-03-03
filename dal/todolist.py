@@ -18,16 +18,16 @@ class todoList(base.base):
     def getsharedwithme(self, userid):
         self.cur.execute(constants.GET_TODOS, {"userid": userid, "statusid": 2, "isowner": False, "excludestatus": True,
             "isshared": True, "excludeisshared": False})
-        todos = self.cur.fetchall()
+        rawtodos = self.cur.fetchall()
         
-        return todos
+        return self._getTodoList(rawtodos)
     
     def getshared(self, userid):
         self.cur.execute(constants.GET_TODOS, {"userid": userid, "statusid": 2, "isowner": True, "excludestatus": True,
             "isshared": True, "excludeisshared": False})
-        todos = self.cur.fetchall()
+        rawtodos = self.cur.fetchall()
         
-        return todos
+        return self._getTodoList(rawtodos)
     
     def _getTodoList(self, rawtodos):
         todos = []
