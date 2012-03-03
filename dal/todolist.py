@@ -1,7 +1,7 @@
 from . import base
 from . import constants
 
-from . import entities
+from entities import todo
 
 
 class todoList(base.base):
