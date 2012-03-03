@@ -2,17 +2,18 @@
 {% block content %}
     {% for todo in todos %}
         <div class="todo" >
-            <input type="hidden" class="todoid" value="{{todo[0]}}" />
+            <input type="hidden" class="todoid" value="{{todo.id}}" />
+            <input type="hidden" class="todoPriority" value="{{todo.priority}}" />
             <table id="todoData">
                 <tr>
                     <td colspan="3">
-                        {{todo[1]}}    
+                        {{todo.name}}    
                     </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td id="isShared">
-                        {% if todo[4] %}
+                        {% if todo.isShared %}
                             shared
                         {% endif %}
                     </td>
@@ -21,14 +22,14 @@
                             <select id="statusSelector" class="statusSelector">
                                 {% for status in statuses %}
                                     <option
-                                        {% if todo[3] == status[1] %}
+                                        {% if todo.statusName == status[1] %}
                                             selected="selected"
                                         {% endif %}
                                         value="{{status[0]}}">{{status[1]}}</option>
                                 {% endfor %}
                             </select>
                         {% else %}
-                            {{todo[3]}}
+                            {{todo.statusName}}
                         {% endif%}
                     </td>
                 </tr>

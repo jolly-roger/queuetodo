@@ -1,6 +1,9 @@
 from . import base
 from . import constants
 
+from entities import todo
+
+
 class todoList(base.base):
     def __init__(self):
         base.base.__init__(self)
@@ -8,9 +11,9 @@ class todoList(base.base):
     def getmy(self, userid, statusid):
         self.cur.execute(constants.GET_TODOS, {"userid": userid, "statusid": statusid, "isowner": True,
             "excludestatus": False, "isshared": False, "excludeisshared": True})
-        todos = self.cur.fetchall()
+        rawtodos = self.cur.fetchall()
         
-        return todos
+        return self._getTodoList(rawtodos)
     
     def getsharedwithme(self, userid):
         self.cur.execute(constants.GET_TODOS, {"userid": userid, "statusid": 2, "isowner": False, "excludestatus": True,
@@ -24,4 +27,12 @@ class todoList(base.base):
             "isshared": True, "excludeisshared": False})
         todos = self.cur.fetchall()
         
+        return todos
+    
+    def _getTodoList(rawtodos):
+        todos = []
+        
+        for rawtodo in rawtodos:
+            todos[len(todos):] = [entities.todo(rawtodo[0], rawtodo[1], rawtodo[2], rawtodo[3], rawtodo[4], rawtodo[5])]
+            
         return todos

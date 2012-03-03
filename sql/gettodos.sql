@@ -3,7 +3,8 @@ create or replace type todo_status as (
     name varchar(256),
     status_id integer,
     status_name varchar(50),
-    is_shared boolean
+    is_shared boolean,
+    priority integer
 );
 
 
@@ -13,7 +14,7 @@ returns setof todo_status
 AS
 $BODY$
 BEGIN
-    return query select t.id_todo, t.name, t.status_id, s.name as status_name, t.is_shared
+    return query select t.id_todo, t.name, t.status_id, s.name as status_name, t.is_shared, t.priority
         from todo as t
         inner join status as s
             on t.status_id = s.id_status
