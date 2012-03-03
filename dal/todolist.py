@@ -33,7 +33,7 @@ class todoList(base.base):
         todos = []
         
         for rawtodo in rawtodos:
-            todos[len(todos):] = [entities.todo.todo(rawtodo[0], rawtodo[1], rawtodo[2], rawtodo[3], rawtodo[4],
+            todos[len(todos):] = [todo.todo(rawtodo[0], rawtodo[1], rawtodo[2], rawtodo[3], rawtodo[4],
                 rawtodo[5])]
             
         return todos
