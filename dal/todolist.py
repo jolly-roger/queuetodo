@@ -1,7 +1,7 @@
 from . import base
 from . import constants
 
-from ..entities import todo
+from entities.todo import todo
 
 
 class todoList(base.base):
@@ -33,6 +33,7 @@ class todoList(base.base):
         todos = []
         
         for rawtodo in rawtodos:
-            todos[len(todos):] = [entities.todo(rawtodo[0], rawtodo[1], rawtodo[2], rawtodo[3], rawtodo[4], rawtodo[5])]
+            todos[len(todos):] = [entities.todo.todo(rawtodo[0], rawtodo[1], rawtodo[2], rawtodo[3], rawtodo[4],
+                rawtodo[5])]
             
         return todos
