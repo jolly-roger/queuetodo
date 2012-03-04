@@ -52,7 +52,7 @@ addLoadEvent(function(){
                     var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=todos[index]);
                     var url = (new String(SET_STATUS_URL)).
                         replace(TODO_ID, todoidelement.value).
-                        replace(STATUS_ID, e.target.options[e.target.selectedIndex].valu);
+                        replace(STATUS_ID, e.target.options[e.target.selectedIndex].value);
                     
                     doSimpleXMLHttpRequest(url);
                     removeElement(todos[index]);
@@ -68,7 +68,7 @@ addLoadEvent(function(){
     
     $("statusFilter").onchange = function(e){
         var url = (new String(STATUS_FILTER_URL)).
-            replace(STATUS_ID, e.target.options[e.target.selectedIndex].valu);
+            replace(STATUS_ID, e.target.options[e.target.selectedIndex].value);
                         
         window.location = url;
     };
