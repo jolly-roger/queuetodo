@@ -6,9 +6,14 @@ addLoadEvent(function(){
             ondrop: (function(index){
                 return function(element){
                     if(hasElementClass(element, "todo")){
+                        var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=todos[index]);
+                        var newTodoPriorityElement = getFirstElementByTagAndClassName("input", "todoPriority",
+                            parent=element);
                         var parentEl = element.parentElement;
                         parentEl.removeChild(element);
                         parentEl.insertBefore(element, todos[index]);
+                        doSimpleXMLHttpRequest("http://" + HOST + "/setpriority/" + todoidelement.value + "/" +
+                            newTodoPriorityElement.value + "/");
                     }else if(hasElementClass(element, "friend")){
                         var friendidelement = getFirstElementByTagAndClassName("input", "friendid", parent=element);
                         var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=todos[index]);
