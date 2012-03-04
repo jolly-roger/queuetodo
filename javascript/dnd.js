@@ -6,9 +6,9 @@ addLoadEvent(function(){
             ondrop: (function(index){
                 return function(element){
                     if(hasElementClass(element, "todo")){
-                        var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=todos[index]);
+                        var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=element);
                         var newTodoPriorityElement = getFirstElementByTagAndClassName("input", "todoPriority",
-                            parent=element);
+                            parent=todos[index]);
                         var parentEl = element.parentElement;
                         parentEl.removeChild(element);
                         parentEl.insertBefore(element, todos[index]);
