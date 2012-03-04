@@ -80,17 +80,16 @@ class queuetodo(object):
             authorization.callbackHandler(code)
             authentication.authenticate(code)
             
-            #cherrypy.response.headers['Location'] = "http://dns-dig.net"  
-            raise cherrypy.HTTPRedirect("/testfragment")
+            raise cherrypy.HTTPRedirect("/removefragment")
             
     @cherrypy.expose
-    def testfragment(self):
+    def removefragment(self):
         return "<html>" \
             "<head>" \
             "</head>" \
             "<body>" \
                 "<script type=\"text/javascript\">" \
-                "parent.location.hash = \"\"; window.location.href = \"http://dns-dig.net\";" \
+                "parent.location.hash = \"\"; window.location.href = \"/\";" \
                 "</script>" \
             "</body>" \
             "</html>"
