@@ -13,6 +13,10 @@ begin
     where t.id_todo = todoid limit 1;
 
     update todo
+    set priority = todopriority
+    where id_todo = todoid;
+
+    update todo
     set priority = priority + 1
     where id_todo <> todoid and priority >= todopriority and
         status_id = (select status_id from todo where id_todo = todoid) and

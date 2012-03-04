@@ -1,3 +1,14 @@
+var SET_PRIORITY_URL = "http://" + HOST + "/setpriority/%(todoid)s/%(todopriority)s/";
+var SHARE_URL = "http://" + HOST + "/share/%(todoid)s/%(friendid)s/";
+var SET_STATUS_URL = "http://" + HOST + "/setstatus/%(todoid)s/%(statusid)s/";
+var STATUS_FILTER_URL = "http://" + HOST + "/index/%(statusid)s/";
+
+var TODO_ID = "%(todoid)s";
+var TODO_PRIORITY = "%(todopriority)s";
+var FRIEND_ID = "%(friendid)s";
+var STATUS_ID = "%(statusid)s";
+
+
 addLoadEvent(function(){
     var todos = getElementsByTagAndClassName("div", "todo");
     for(var i = 0; i < todos.length; i ++){
@@ -10,16 +21,25 @@ addLoadEvent(function(){
                         var newTodoPriorityElement = getFirstElementByTagAndClassName("input", "todoPriority",
                             parent=todos[index]);
                         var parentEl = element.parentElement;
+                        
                         parentEl.removeChild(element);
                         parentEl.insertBefore(element, todos[index]);
-                        doSimpleXMLHttpRequest("http://" + HOST + "/setpriority/" + todoidelement.value + "/" +
-                            newTodoPriorityElement.value + "/");
+                        
+                        var url = (new String(SET_PRIORITY_URL)).
+                            replace(TODO_ID, todoidelement.value).
+                            replace(TODO_PRIORITY, newTodoPriorityElement.value);
+                        
+                        doSimpleXMLHttpRequest(url);
                     }else if(hasElementClass(element, "friend")){
                         var friendidelement = getFirstElementByTagAndClassName("input", "friendid", parent=element);
                         var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=todos[index]);
+                        
                         if(friendidelement && friendidelement.value && todoidelement && todoidelement.value){
-                            doSimpleXMLHttpRequest("http://" + HOST + "/share/" + todoidelement.value + "/" +
-                                friendidelement.value + "/");
+                            var url = (new String(SHARE_URL)).
+                                replace(TODO_ID, todoidelement.value).
+                                replace(FRIEND_ID, friendidelement.value);
+                            
+                            doSimpleXMLHttpRequest(url);
                         };
                     }
                 };
@@ -30,8 +50,11 @@ addLoadEvent(function(){
             statusSelector.onchange = (function(index){
                 return function(e){
                     var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=todos[index]);
-                    doSimpleXMLHttpRequest("http://" + HOST + "/setstatus/" + todoidelement.value + "/" +
-                    e.target.options[e.target.selectedIndex].value + "/");
+                    var url = (new String(SET_STATUS_URL)).
+                        replace(TODO_ID, todoidelement.value).
+                        replace(STATUS_ID, e.target.options[e.target.selectedIndex].valu);
+                    
+                    doSimpleXMLHttpRequest(url);
                     removeElement(todos[index]);
                 };
             })(i);
@@ -44,6 +67,9 @@ addLoadEvent(function(){
     };
     
     $("statusFilter").onchange = function(e){
-        window.location = "http://" + HOST + "/index/" + e.target.options[e.target.selectedIndex].value + "/";
+        var url = (new String(STATUS_FILTER_URL)).
+            replace(STATUS_ID, e.target.options[e.target.selectedIndex].valu);
+                        
+        window.location = url;
     };
 });
