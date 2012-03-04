@@ -80,7 +80,7 @@ class queuetodo(object):
             authorization.callbackHandler(code)
             authentication.authenticate(code)
             
-            cherrypy.response.headers['Location'] = "/"  
+            cherrypy.response.headers['Location'] = "http://dns-dig.net"  
             #raise cherrypy.HTTPRedirect("/#welcome")
             
     @cherrypy.expose
