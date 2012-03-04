@@ -89,7 +89,7 @@ class queuetodo(object):
             "<head>" \
             "</head>" \
             "<body>" \
-                "<script type=\"text/javascript\"" \
+                "<script type=\"text/javascript\">" \
                 "parent.location.hash = \"\"; window.location.href = \"http://dns-dig.net\";" \
                 "</script>" \
             "</body>" \
