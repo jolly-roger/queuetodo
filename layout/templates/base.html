@@ -3,8 +3,10 @@
 <html>
     <head>
     {% block head%}
-        <script type="text/javascript" src="/javascript"></script>
-        <link rel="stylesheet" type="text/css" href="/css" />
+        {% block scriptsAndStyles%}
+            <script type="text/javascript" src="/javascript"></script>
+            <link rel="stylesheet" type="text/css" href="/css" />
+        {% endblock%}
         
         <title>queuetodo</title> 
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -21,12 +23,9 @@
             </div><!-- /header -->
 
             <div data-role="content">	
-        
+            {% block mainContent %}
         
         <div id="container">
-            <div id="header">
-                <h1>Header</h1>
-            </div>
             <div id="wrapper">
                 <div id="content">
                 {% block content %}
@@ -55,7 +54,7 @@
             </div>
         </div>
         
-        
+            {% endblock %}
             </div><!-- /content -->
 
         </div><!-- /page -->
