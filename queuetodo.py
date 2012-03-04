@@ -80,7 +80,7 @@ class queuetodo(object):
             authorization.callbackHandler(code)
             authentication.authenticate(code)
             
-            raise cherrypy.HTTPRedirect("/#welcome")
+            raise cherrypy.HTTPRedirect("/")
             
     @cherrypy.expose
     def javascript(self):
