@@ -81,11 +81,19 @@ class queuetodo(object):
             authentication.authenticate(code)
             
             #cherrypy.response.headers['Location'] = "http://dns-dig.net"  
-            raise cherrypy.HTTPRedirect("/testfragment#welcome")
+            raise cherrypy.HTTPRedirect("/testfragment")
             
     @cherrypy.expose
     def testfragment(self):
-        raise cherrypy.HTTPRedirect("/")
+        return "<html>" \
+            "<head>" \
+            "</head>" \
+            "<body>" \
+                "<script type=\"text/javascript\"" \
+                "parent.location.hash = \"\"; window.location.href = \"http://dns-dig.net\";" \
+                "</script>" \
+            "</body>" \
+            "</html>"
             
     @cherrypy.expose
     def javascript(self):
