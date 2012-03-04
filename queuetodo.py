@@ -80,7 +80,8 @@ class queuetodo(object):
             authorization.callbackHandler(code)
             authentication.authenticate(code)
             
-            raise cherrypy.HTTPRedirect("/removefragment")
+            #raise cherrypy.HTTPRedirect("/removefragment")
+            raise cherrypy.HTTPRedirect("/")
             
     @cherrypy.expose
     def removefragment(self):
