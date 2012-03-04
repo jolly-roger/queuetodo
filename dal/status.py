@@ -1,7 +1,7 @@
 from . import base
 from . import constants
 
-from dal.entities import status
+import dal.entities.status
 
 
 class status(base.base):
@@ -18,6 +18,6 @@ class status(base.base):
         statuses = []
         
         for rawstatus in rawstatuses:
-            statuses[len(statuses):] = [status.status(rawstatus[0], rawstatus[1], rawstatus[2])]
+            statuses[len(statuses):] = [dal.entities.status.status(rawstatus[0], rawstatus[1], rawstatus[2])]
             
         return statuses
