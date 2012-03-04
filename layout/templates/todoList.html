@@ -22,10 +22,10 @@
                             <select id="statusSelector" class="statusSelector">
                                 {% for status in statuses %}
                                     <option
-                                        {% if todo.statusName == status[1] %}
+                                        {% if todo.statusName == status.name %}
                                             selected="selected"
                                         {% endif %}
-                                        value="{{status[0]}}">{{status[1]}}</option>
+                                        value="{{status.id}}">{{status.name}}</option>
                                 {% endfor %}
                             </select>
                         {% else %}
@@ -41,10 +41,10 @@
     Todo status filter&nbsp;<select id="statusFilter">
         {% for status in statuses %}
             <option
-                {% if statusid == status[0] %}
+                {% if statusid == status.id %}
                     selected="selected"
                 {% endif %}
-                value="{{status[0]}}">{{status[1]}}</option>
+                value="{{status.id}}">{{status.name}}</option>
         {% endfor %}
     </select>
 {% endblock %}
