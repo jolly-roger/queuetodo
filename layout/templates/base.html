@@ -3,12 +3,26 @@
 <html>
     <head>
     {% block head%}
-         <script type="text/javascript" src="/javascript"></script>
+        <script type="text/javascript" src="/javascript"></script>
         <link rel="stylesheet" type="text/css" href="/css" />
-        <title>Layout 23</title>
+        
+        <title>queuetodo</title> 
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+        <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
     {% endblock %}
     </head>
     <body>
+        <div data-role="page">
+
+            <div data-role="header">
+                <h1>My Title</h1>
+            </div><!-- /header -->
+
+            <div data-role="content">	
+        
+        
         <div id="container">
             <div id="header">
                 <h1>Header</h1>
@@ -40,5 +54,10 @@
             {% endblock %}
             </div>
         </div>
+        
+        
+            </div><!-- /content -->
+
+        </div><!-- /page -->
     </body>
 </html>
