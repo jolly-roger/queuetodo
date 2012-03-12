@@ -23,12 +23,13 @@ class queuetodo(object):
         tdl = todolist.todoList()
         todos = tdl.getmy(user.getUserId(), statusid)
         tdl.close()
-        frs = friends.getfriends()
+        #frs = friends.getfriends()
         st = status.status()
         sts = st.getall()
         st.close()
     
-        return layout.getMyTodos(todos, frs, sts, int(statusid))
+        #return layout.getMyTodos(todos, frs, sts, int(statusid))
+        return layout.getMyTodos(todos, sts, int(statusid))
 
 
     @cherrypy.expose
