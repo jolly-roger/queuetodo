@@ -58,22 +58,6 @@ jQuery(document).ready(function(){
                     removeElement(todos[index]);
                 };
             })(i));
-        
-        
-        //var statusSelector = getFirstElementByTagAndClassName("select", "statusSelector", parent=todos[i]);
-        //if(statusSelector){
-        //    statusSelector.onchange = (function(index){
-        //        return function(e){
-        //            var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=todos[index]);
-        //            var url = (new String(SET_STATUS_URL)).
-        //                replace(TODO_ID, todoidelement.value).
-        //                replace(STATUS_ID, e.target.options[e.target.selectedIndex].value);
-        //            
-        //            doSimpleXMLHttpRequest(url);
-        //            removeElement(todos[index]);
-        //        };
-        //    })(i);
-        //};
     };
     
     var friends = getElementsByTagAndClassName("div", "friend");
