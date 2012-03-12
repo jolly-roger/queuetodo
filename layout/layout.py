@@ -8,11 +8,11 @@ env = Environment(loader = FileSystemLoader(constants.BASE_DIR + "layout/templat
 
 
 def getSignin():
-    tmpl = env.get_template("signin.html")
+    tmpl = env.get_template("pages/signin.html")
     return tmpl.render()
 
 def getAddTodo():
-    tmpl = env.get_template("addTodo.html")
+    tmpl = env.get_template("pages/addTodo.html")
     return tmpl.render()
     
 #def getMyTodos(todos, friends, statuses, statusid):
