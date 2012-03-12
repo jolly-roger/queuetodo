@@ -68,6 +68,8 @@ addLoadEvent(function(){
 });
 
 $(function(){
+    alert(-1);
+    
     $("#statusFilter").change(function(e){
         alert(0);
         
