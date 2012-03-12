@@ -23,6 +23,8 @@
 
             <div data-role="header">
                 <h1>{% block pageTitle %}Queuetodo{% endblock %}</h1>
+                {% block statusFilter %}
+                {% endblock %}  
             </div><!-- /header -->
 
             {% block navbar %}
@@ -36,9 +38,6 @@
                 </ul>
             </div><!-- /navbar -->
             {% endblock%}
-        
-            {% block statusFilter %}
-            {% endblock %}  
             
             <div data-role="content">	
             {% block mainContent %}
