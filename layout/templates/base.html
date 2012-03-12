@@ -28,11 +28,13 @@
             <div data-role="content">	
             {% block mainContent %}
         
-            <a href="/" data-ajax="false" data-role="button">home</a>
-            <a href="/addtodo" data-ajax="false" data-role="button">add todo</a>
-            <a href="/shared" data-ajax="false" data-role="button">shared</a>
-            <a href="/sharedwithme" data-ajax="false" data-role="button">shared with me</a>
-            <a href="/logout" data-ajax="false" data-role="button">logout</a>
+            <div data-role="controlgroup" data-type="horizontal">
+                <a href="/" data-ajax="false" data-role="button">home</a>
+                <a href="/addtodo" data-ajax="false" data-role="button">add todo</a>
+                <a href="/shared" data-ajax="false" data-role="button">shared</a>
+                <a href="/sharedwithme" data-ajax="false" data-role="button">shared with me</a>
+                <a href="/logout" data-ajax="false" data-role="button">logout</a>
+            </div>
         
         <div id="container">
             <div id="wrapper">
