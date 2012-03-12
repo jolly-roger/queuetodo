@@ -49,8 +49,6 @@ jQuery(document).ready(function(){
         
         jQuery(todos[i]).find("select.statusSelector").change((function(index){
                 return function(e){
-                    alert(0);
-                    
                     var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=todos[index]);
                     var url = (new String(SET_STATUS_URL)).
                         replace(TODO_ID, todoidelement.value).
