@@ -9,7 +9,7 @@ var FRIEND_ID = "%(friendid)s";
 var STATUS_ID = "%(statusid)s";
 
 
-addLoadEvent(function(){
+jQuery(document).ready(function(){
     var todos = getElementsByTagAndClassName("div", "todo");
     for(var i = 0; i < todos.length; i ++){
         new Draggable(todos[i], {revert: true});
@@ -65,10 +65,8 @@ addLoadEvent(function(){
     for(var i = 0; i < friends.length; i ++){
         new Draggable(friends[i], {revert: true});
     };
-});
-
- jQuery(document).ready(function(){
-     jQuery("#statusFilter").change(function(e){
+    
+    jQuery("#statusFilter").change(function(e){
         var url = (new String(STATUS_FILTER_URL)).
             replace(STATUS_ID, e.target.options[e.target.selectedIndex].value);
                         
