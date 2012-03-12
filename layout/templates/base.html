@@ -36,13 +36,17 @@
                 </ul>
             </div><!-- /navbar -->
             {% endblock%}
+        
+            {% block footer %}
+            <div data-role="footer"> 
+                {% block navigation %}
+                    {{ navigation }}
+                {% endblock %}    
+            </div><!-- /footer -->
+            {% endblock %}
             
             <div data-role="content">	
             {% block mainContent %}
-            
-            {% block navigation %}
-                {{ navigation }}
-            {% endblock %}
             
             {% block content %}
                 {{ content }}
@@ -65,8 +69,6 @@
             {% endblock %}
             </div>
             <div id="footer">
-            {% block footer %}            
-            {% endblock %}
             </div>
         </div>
         #}
