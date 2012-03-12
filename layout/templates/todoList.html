@@ -38,7 +38,7 @@
     {% endfor %}
 {% endblock %}
 {% block navigation %}
-    Todo status filter&nbsp;<select id="statusFilter">
+    <select id="statusFilter">
         {% for status in statuses %}
             <option
                 {% if statusid == status.id %}
