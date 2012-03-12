@@ -38,7 +38,7 @@
     {% endfor %}
 {% endblock %}
 {% block statusFilter %}
-    <select id="statusFilter" data-inline="true">
+    <select id="statusFilter">
         {% for status in statuses %}
             <option
                 {% if statusid == status.id %}
