@@ -36,6 +36,9 @@
                 </ul>
             </div><!-- /navbar -->
             {% endblock%}
+        
+            {% block statusFilter %}
+            {% endblock %}  
             
             <div data-role="content">	
             {% block mainContent %}
@@ -70,10 +73,7 @@
             </div><!-- /content -->
 
             {% block footer %}
-            <div data-role="footer"> 
-                {% block navigation %}
-                    {{ navigation }}
-                {% endblock %}    
+            <div data-role="footer">   
             </div><!-- /footer -->
             {% endblock %}
             

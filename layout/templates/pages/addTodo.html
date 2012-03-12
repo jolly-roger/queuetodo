@@ -3,11 +3,15 @@
 {% block pageTitle %}Add Todo{% endblock %}
 {% block navAddTodoActive %}class="ui-btn-active"{% endblock %}
 
+{% block statusFilter %}
+{% endblock %}
+
 {% block content %}
     <form action="/addtodo" method="post">
         <textarea rows="5" cols="50" name="todoname"></textarea>
         <input type="submit" value="Add"/>
     </form>
 {% endblock %}
+
 {% block footer %}
 {% endblock %}

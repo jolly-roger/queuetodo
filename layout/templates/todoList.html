@@ -37,8 +37,8 @@
         </div>
     {% endfor %}
 {% endblock %}
-{% block navigation %}
-    <select id="statusFilter">
+{% block statusFilter %}
+    <select id="statusFilter" data-inline="true">
         {% for status in statuses %}
             <option
                 {% if statusid == status.id %}
