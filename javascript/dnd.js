@@ -65,13 +65,17 @@ addLoadEvent(function(){
     for(var i = 0; i < friends.length; i ++){
         new Draggable(friends[i], {revert: true});
     };
-    
-    $("statusFilter").onchange = function(e){
+});
+
+$(function(){
+    $("#statusFilter").change(function(e){
         alert(0);
         
         var url = (new String(STATUS_FILTER_URL)).
             replace(STATUS_ID, e.target.options[e.target.selectedIndex].value);
                         
         window.location = url;
-    };
+    });
 });
+
+    
