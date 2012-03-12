@@ -35,19 +35,23 @@
                 <a href="/sharedwithme" data-ajax="false" data-role="button">shared with me</a>
                 <a href="/logout" data-ajax="false" data-role="button">logout</a>
             </div>
+            
+            {% block navigation %}
+                {{ navigation }}
+            {% endblock %}
+            
+            {% block content %}
+                {{ content }}
+            {% endblock %}
         
         <div id="container">
             <div id="wrapper">
                 <div id="content">
-                {% block content %}
-                    {{ content }}
-                {% endblock %}
+                
                 </div>
             </div>
             <div id="navigation">
-            {% block navigation %}
-                {{ navigation }}
-            {% endblock %}
+            
             </div>
             <div id="extra">
             {% block extra %}
