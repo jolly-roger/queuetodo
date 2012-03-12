@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block pageTitle %}Add Todo{% endblock %}
+{% block navAddTodoActive %}class="ui-btn-active"{% endblock %}
 
 {% block content %}
     <form action="/addtodo" method="post">

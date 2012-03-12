@@ -17,17 +17,21 @@ def getAddTodo():
     
 #def getMyTodos(todos, friends, statuses, statusid):
 def getMyTodos(todos, statuses, statusid):
-    tmpl = env.get_template("todoList.html")    
+    tmpl = env.get_template("pages/home.html")    
     #return tmpl.render(todos = todos, friends = friends, statuses = statuses, statusid = statusid)
     return tmpl.render(todos = todos, statuses = statuses, statusid = statusid)
     
 def getSharedWithMeTodos(todos):
     #return getTodoList(todos, None, "Shared With Me")
-    return getTodoList(todos, "Shared With Me")
+    #return getTodoList(todos, "Shared With Me")
+    tmpl = env.get_template("pages/sharedWithMe.html")    
+    return tmpl.render(title = "Shared WithMe", todos = todos)
     
 def getSharedTodos(todos):
     #return getTodoList(todos, None, "Shared")
-    return getTodoList(todos, "Shared")
+    #return getTodoList(todos, "Shared")
+    tmpl = env.get_template("pages/shared.html")    
+    return tmpl.render(title = "Shared", todos = todos)
 
 #def getTodoList(todos, friends, title):
 def getTodoList(todos, title):
