@@ -12,10 +12,6 @@ var STATUS_ID = "%(statusid)s";
 jQuery(document).ready(function(){
     var todos = getElementsByTagAndClassName("div", "todo");
     
-    
-    alert(todos.length);
-    
-    
     for(var i = 0; i < todos.length; i ++){
         new Draggable(todos[i], {revert: true});
         new Droppable(todos[i], {
@@ -50,10 +46,11 @@ jQuery(document).ready(function(){
                 };
             })(i)
         });
-        var statusSelector = getFirstElementByTagAndClassName("select", "statusSelector", parent=todos[i]);
-        if(statusSelector){
-            statusSelector.onchange = (function(index){
+        
+        jQuery(todos[i]).find("select.statusSelector").change((function(index){
                 return function(e){
+                    alert(0);
+                    
                     var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=todos[index]);
                     var url = (new String(SET_STATUS_URL)).
                         replace(TODO_ID, todoidelement.value).
@@ -62,8 +59,23 @@ jQuery(document).ready(function(){
                     doSimpleXMLHttpRequest(url);
                     removeElement(todos[index]);
                 };
-            })(i);
-        };
+            })(i));
+        
+        
+        //var statusSelector = getFirstElementByTagAndClassName("select", "statusSelector", parent=todos[i]);
+        //if(statusSelector){
+        //    statusSelector.onchange = (function(index){
+        //        return function(e){
+        //            var todoidelement = getFirstElementByTagAndClassName("input", "todoid", parent=todos[index]);
+        //            var url = (new String(SET_STATUS_URL)).
+        //                replace(TODO_ID, todoidelement.value).
+        //                replace(STATUS_ID, e.target.options[e.target.selectedIndex].value);
+        //            
+        //            doSimpleXMLHttpRequest(url);
+        //            removeElement(todos[index]);
+        //        };
+        //    })(i);
+        //};
     };
     
     var friends = getElementsByTagAndClassName("div", "friend");
