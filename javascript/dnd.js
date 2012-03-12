@@ -68,11 +68,7 @@ addLoadEvent(function(){
 });
 
  jQuery(document).ready(function(){
-    alert(-1);
-    
      jQuery("#statusFilter").change(function(e){
-        alert(0);
-        
         var url = (new String(STATUS_FILTER_URL)).
             replace(STATUS_ID, e.target.options[e.target.selectedIndex].value);
                         
