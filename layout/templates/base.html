@@ -25,6 +25,7 @@
                 <h1>My Title</h1>
             </div><!-- /header -->
 
+            {% block navbar %}
             <div data-role="navbar">
                 <ul>
                     <li><a href="/" data-ajax="false">home</a></li>
@@ -34,6 +35,7 @@
                     <li><a href="/logout" data-ajax="false">logout</a></li>
                 </ul>
             </div><!-- /navbar -->
+            {% endblock%}
             
             <div data-role="content">	
             {% block mainContent %}
