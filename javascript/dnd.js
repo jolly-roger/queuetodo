@@ -67,6 +67,8 @@ addLoadEvent(function(){
     };
     
     $("statusFilter").onchange = function(e){
+        alert(0);
+        
         var url = (new String(STATUS_FILTER_URL)).
             replace(STATUS_ID, e.target.options[e.target.selectedIndex].value);
                         
