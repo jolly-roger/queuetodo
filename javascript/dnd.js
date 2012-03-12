@@ -67,10 +67,10 @@ addLoadEvent(function(){
     };
 });
 
-$(function(){
+ jQuery(document).ready(function(){
     alert(-1);
     
-    $("#statusFilter").change(function(e){
+     jQuery("#statusFilter").change(function(e){
         alert(0);
         
         var url = (new String(STATUS_FILTER_URL)).
