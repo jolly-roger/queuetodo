@@ -11,6 +11,11 @@ var STATUS_ID = "%(statusid)s";
 
 jQuery(document).ready(function(){
     var todos = getElementsByTagAndClassName("div", "todo");
+    
+    
+    alert(todos.length);
+    
+    
     for(var i = 0; i < todos.length; i ++){
         new Draggable(todos[i], {revert: true});
         new Droppable(todos[i], {
