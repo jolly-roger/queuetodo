@@ -19,7 +19,7 @@ from layout import layout
 class queuetodo(object):
     @cherrypy.expose
     @isAuthorized
-    def index(self, statusid = 0):
+    def index(self, statusid = 0, signed_request = None):
         tdl = todolist.todoList()
         todos = tdl.getmy(user.getUserId(), statusid)
         tdl.close()
