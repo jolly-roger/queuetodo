@@ -22,13 +22,14 @@
         <div data-role="page" data-fullscreen="true">
 
             <div data-role="header">
+                <a href="/" data-ajax="false" data-icon="home"></a>
                 <h1>{% block pageTitle %}Queuetodo{% endblock %}</h1>
             </div><!-- /header -->
 
             {% block navbar %}
             <div data-role="navbar">
                 <ul>
-                    <li><a href="/" data-ajax="false" {% block navHomeActive %}{% endblock %} >home</a></li>
+                    <li><a href="/" data-ajax="false" data-icon="home"></a></li>
                     <li><a href="/addtodo" data-ajax="false" {% block navAddTodoActive %}{% endblock %} >add todo</a></li>
                     {#<li><a href="/shared" data-ajax="false" {% block navSharedActive %}{% endblock %}>shared</a></li>
                     <li><a href="/sharedwithme" data-ajax="false" {% block navSharedWithMeActive %}{% endblock %}>shared with me</a></li>#}
