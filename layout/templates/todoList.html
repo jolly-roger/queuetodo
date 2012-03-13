@@ -38,23 +38,16 @@
     {% endfor %}
 {% endblock %}
 {% block statusFilter %}
-    <table>
-        <tr>
-            <td><h3>Status Filter:</h3></td>
-            <td>
-                <select id="statusFilter" data-inline="true">
-                    {% for status in statuses %}
-                        <option
-                            {% if statusid == status.id %}
-                                selected="selected"
-                            {% endif %}
-                            value="{{status.id}}">{{status.name}}</option>
-                    {% endfor %}
-                </select>
-            </td>
-        </tr>
-    </table>
-    
+            <h3>Status Filter:</h3>
+            <select id="statusFilter" data-inline="true">
+                {% for status in statuses %}
+                    <option
+                        {% if statusid == status.id %}
+                            selected="selected"
+                        {% endif %}
+                        value="{{status.id}}">{{status.name}}</option>
+                {% endfor %}
+            </select>    
 {% endblock %}
 
 {#
