@@ -137,7 +137,7 @@ class queuetodo(object):
         todos = tdl.getmy(user.getUserId(), statusid)
         tdl.close()
         
-        return json.dumps(todos[0].isShared)
+        return json.dumps(todos[0].priority)
 
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), "queuetodo.conf")
