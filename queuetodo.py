@@ -124,6 +124,10 @@ class queuetodo(object):
             td = todo.todo()
             td.setstatus(int(todoid), int(statusid))
             td.close()
+            
+    @cherrypy.expose
+    def info(self):
+        return "information"
 
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), "queuetodo.conf")
