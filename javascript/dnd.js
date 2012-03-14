@@ -71,10 +71,11 @@ jQuery(document).ready(function(){
                         
         window.location = url;
     });
-    
-    jQuery("#addTodo").click(function(){
-        jQuery.post("/addtodo", {todoname: jQuery("#todoName").val()});
-    });
 });
+
+
+function addTodo(){
+    jQuery.post("/addtodo", {todoname: jQuery("#todoName").val()});
+};
 
     
