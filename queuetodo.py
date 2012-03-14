@@ -128,6 +128,15 @@ class queuetodo(object):
     @cherrypy.expose
     def info(self):
         return "information"
+    
+    @cherrypy.expose
+    @isAuthorized
+    def listtodos(self, statusid = 0):
+        tdl = todolist.todoList()
+        todos = tdl.getmy(user.getUserId(), statusid)
+        tdl.close()
+        
+        return json.dumps(todos)
 
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), "queuetodo.conf")
