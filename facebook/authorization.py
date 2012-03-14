@@ -12,7 +12,7 @@ def callbackHandler(code):
     
 def isAuthorized():
     
-    cherrypy.log.error(cherrypy.session.get(constants.FACEBOOK_CODE))
+    cherrypy.log.error(str(cherrypy.session.get(constants.FACEBOOK_CODE)))
     
     return bool(cherrypy.session.get(constants.FACEBOOK_CODE))
     
