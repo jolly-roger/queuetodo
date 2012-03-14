@@ -33,14 +33,8 @@ class todoList(base.base):
         todos = []
         
         for rawtodo in rawtodos:
-            todo = dal.entities.todo.todo()
-            #def __init__(self, id = -1, name = "", statusId = -1, statusName = "", isShared = False, priority = -1):
-            todo.id = rawtodo[0]
-            todo.name = rawtodo[1]
-            todo.statusId = rawtodo[2]
-            todo.statusName = rawtodo[3]
-            todo.isShared = rawtodo[4]
-            todo.priority = rawtodo[5]
+            todo = {"id": rawtodo[0], "name": rawtodo[1], "statusId": rawtodo[2], "statusName": rawtodo[3],
+                "isShared": rawtodo[4], "priority": rawtodo[5]}
             
             #todos[len(todos):] = [dal.entities.todo.todo(rawtodo[0], rawtodo[1], rawtodo[2], rawtodo[3], rawtodo[4],
             #    rawtodo[5])]
