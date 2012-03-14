@@ -19,11 +19,7 @@ from layout import layout
 class queuetodo(object):
     @cherrypy.expose
     @isAuthorized
-    def index(self, statusid = 0, signed_request = None, count = None):
-        
-        cherrypy.log.error("signed_request: " + str(signed_request))
-        cherrypy.log.error("count: " + str(count))
-        
+    def index(self, statusid = 0, *args, **kwargs):
         tdl = todolist.todoList()
         todos = tdl.getmy(user.getUserId(), statusid)
         tdl.close()
