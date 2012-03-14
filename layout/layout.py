@@ -15,14 +15,14 @@ def getSignin():
 
 def getAddTodo():
     env.globals["session"] = cherrypy.session
-    env.globals["facebookConstatns"] = facebookConstatns.IS_SIGNED_REQUEST
+    env.globals["facebookConstatns"] = facebookConstatns
     tmpl = env.get_template("pages/addTodo.html")
     return tmpl.render()
     
 #def getMyTodos(todos, friends, statuses, statusid):
 def getMyTodos(todos, statuses, statusid):
     env.globals["session"] = cherrypy.session
-    env.globals["facebookConstatns"] = facebookConstatns.IS_SIGNED_REQUEST
+    env.globals["facebookConstatns"] = facebookConstatns
     tmpl = env.get_template("pages/home.html")    
     #return tmpl.render(todos = todos, friends = friends, statuses = statuses, statusid = statusid)
     return tmpl.render(todos = todos, statuses = statuses, statusid = statusid)
