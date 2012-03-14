@@ -76,6 +76,8 @@ jQuery(document).ready(function(){
 
 function addTodo(){
     jQuery.post("/addtodo", {todoname: jQuery("#todoName").val()});
+    
+    window.location = "/";
 };
 
     
