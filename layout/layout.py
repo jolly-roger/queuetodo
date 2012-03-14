@@ -21,6 +21,9 @@ def getAddTodo():
 def getMyTodos(todos, statuses, statusid):
     tmpl = env.get_template("pages/home.html")    
     #return tmpl.render(todos = todos, friends = friends, statuses = statuses, statusid = statusid)
+    
+    cherrypy.log.error(str(cherrypy.session.get(facebookConstatns.IS_SIGNED_REQUEST)))
+    
     return tmpl.render(todos = todos, statuses = statuses, statusid = statusid,
         isSignedRequest = cherrypy.session.get(facebookConstatns.IS_SIGNED_REQUEST))
     
