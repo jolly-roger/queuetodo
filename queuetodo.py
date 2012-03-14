@@ -54,7 +54,7 @@ class queuetodo(object):
     @cherrypy.expose
     @isAuthorized
     def addtodo(self, todoname=None):
-        if not todoname == None:
+        if not todoname == None and not todoname == "":
             td = todo.todo()
             td.add(int(user.getUserId()), todoname)
             td.close()
