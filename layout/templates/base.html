@@ -22,7 +22,9 @@
         <div data-role="page" data-fullscreen="true">
 
             <div data-role="header">
-                <a href="/" data-ajax="false" data-icon="home" data-iconpos="notext">home</a>
+                {% block homebtn %}
+                    <a href="/" data-ajax="false" data-icon="home" data-iconpos="notext">home</a>
+                {% endblock %}
                 <h1>{% block pageTitle %}Queuetodo{% endblock %}</h1>
                 {% block logoutbtn %}
                     {% if not isSignedRequest %}
