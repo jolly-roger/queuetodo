@@ -23,12 +23,8 @@ def isAuthorized(f):
             return f(*args, **kwargs)
         else:
             if not authorization.isAuthorized():
-                cherrypy.log.error("0")
-                
                 return layout.getSignin()
             else:
-                cherrypy.log.error("1")
-                
                 authorization.checkAuthorization()
                 
                 return f(*args, **kwargs)

@@ -58,8 +58,6 @@ class queuetodo(object):
             td = todo.todo()
             td.add(int(user.getUserId()), todoname)
             td.close()
-            
-            raise cherrypy.HTTPRedirect("/")
     
         return layout.getAddTodo()
     
