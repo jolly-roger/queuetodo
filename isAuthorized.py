@@ -16,6 +16,8 @@ def isAuthorized(f):
                 break
         
         if cherrypy.session.get(constants.IS_SIGNED_REQUEST):
+            authorization.authorize();
+            
             return f(*args, **kwargs)
         else:
             if not authorization.isAuthorized():
