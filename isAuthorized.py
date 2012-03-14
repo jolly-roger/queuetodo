@@ -1,18 +1,21 @@
+import cherrypy
+
 from facebook import authorization
+from facebook import constants
 
 from layout import layout
 
 
 def isAuthorized(f):
     def _isAuthorized(*args, **kwargs):
-        isSignedRequest = False
+        cherrypy.session[constants.IS_SIGNED_REQUEST] = False
         
         for kw in kwargs:
-            if kw == "signed_request":
-                isSignedRequest = True
+            if kw == constants.IS_SIGNED_REQUEST:
+                cherrypy.session[constants.IS_SIGNED_REQUEST] = True
                 break
         
-        if isSignedRequest:
+        if cherrypy.session.get(constants.IS_SIGNED_REQUEST):
             return f(*args, **kwargs)
         else:
             if not authorization.isAuthorized():

@@ -25,7 +25,9 @@
                 <a href="/" data-ajax="false" data-icon="home" data-iconpos="notext">home</a>
                 <h1>{% block pageTitle %}Queuetodo{% endblock %}</h1>
                 {% block logoutbtn %}
-                    <a href="/logout" data-ajax="false">logout</a>
+                    {% if session.get(facebookConstatns.IS_SIGNED_REQUEST) %}
+                        <a href="/logout" data-ajax="false">logout</a>
+                    {% endif %}
                 {% endblock %}
             </div><!-- /header -->
 
