@@ -3,7 +3,7 @@ import constants
 
 from jinja2 import Environment, FileSystemLoader
 
-from ..facebook import constants as facebookConstatns
+from facebook import constants as facebookConstatns
 
 env = Environment(loader = FileSystemLoader(constants.BASE_DIR + "layout/templates"))
 env.globals["session"] = cherrypy.session
