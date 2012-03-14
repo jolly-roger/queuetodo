@@ -78,11 +78,10 @@ class queuetodo(object):
 
     @cherrypy.expose
     def authorizecallback(self, code=None, error_reason=None, error=None):
-        if not authorization.isAuthorized():
-            authorization.callbackHandler(code)
-            authentication.authenticate(code)
-            
-            raise cherrypy.HTTPRedirect("/")
+        authorization.callbackHandler(code)
+        authentication.authenticate(code)
+        
+        raise cherrypy.HTTPRedirect("/")
             
     @cherrypy.expose
     def javascript(self):
