@@ -8,6 +8,7 @@ from facebook import authorization
 from facebook import authentication
 from facebook import user
 from facebook import friends
+from facebook import constants as facebookConstatns
 
 from dal import todo
 from dal import todolist
@@ -20,6 +21,14 @@ class queuetodo(object):
     @cherrypy.expose
     @isAuthorized
     def index(self, statusid = 0, *args, **kwargs):
+        
+        cherrypy.session[facebookConstatns.IS_SIGNED_REQUEST] = False
+        
+        for kw in kwargs:
+            if kw == constants.IS_SIGNED_REQUEST:
+                cherrypy.session[facebookConstatns.IS_SIGNED_REQUEST] = True
+                break
+        
         tdl = todolist.todoList()
         todos = tdl.getmy(user.getUserId(), statusid)
         tdl.close()
