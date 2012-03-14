@@ -44,6 +44,6 @@ class todoList(base.base):
             
             #todos[len(todos):] = [dal.entities.todo.todo(rawtodo[0], rawtodo[1], rawtodo[2], rawtodo[3], rawtodo[4],
             #    rawtodo[5])]
-            todos[len(todos):] = todo
+            todos[len(todos):] = [todo]
             
         return todos
