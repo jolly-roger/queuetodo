@@ -8,12 +8,13 @@ from layout import layout
 
 def isAuthorized(f):
     def _isAuthorized(*args, **kwargs):
-        cherrypy.session[constants.IS_SIGNED_REQUEST] = False
-        
-        for kw in kwargs:
-            if kw == constants.IS_SIGNED_REQUEST:
-                cherrypy.session[constants.IS_SIGNED_REQUEST] = True
-                break
+        if cherrypy.session.get(constants.IS_SIGNED_REQUEST):
+            cherrypy.session[constants.IS_SIGNED_REQUEST] = False
+            
+            for kw in kwargs:
+                if kw == constants.IS_SIGNED_REQUEST:
+                    cherrypy.session[constants.IS_SIGNED_REQUEST] = True
+                    break
         
         cherrypy.log.error(str(cherrypy.session.get(constants.IS_SIGNED_REQUEST)))
         
