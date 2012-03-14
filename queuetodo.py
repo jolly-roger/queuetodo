@@ -21,8 +21,8 @@ class queuetodo(object):
     @isAuthorized
     def index(self, statusid = 0, signed_request = None, count = None):
         
-        cherrypy.log.error("signed_request: " + signed_request)
-        cherrypy.log.error("count: " + count)
+        cherrypy.log.error("signed_request: " + str(signed_request))
+        cherrypy.log.error("count: " + str(count))
         
         tdl = todolist.todoList()
         todos = tdl.getmy(user.getUserId(), statusid)
