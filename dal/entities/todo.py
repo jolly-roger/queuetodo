@@ -7,9 +7,9 @@ class todo(object):
         #self.isShared = isShared
         #self.priority = priority
         
-    self.id = -1
-    self.name = ""
-    self.statusId = -1
-    self.statusName = ""
-    self.isShared = False
-    self.priority = -1
+    id = -1
+    name = ""
+    statusId = -1
+    statusName = ""
+    isShared = False
+    priority = -1
