@@ -14,18 +14,15 @@ def getSignin():
     return tmpl.render()
 
 def getAddTodo():
-    env.globals["session"] = cherrypy.session
-    env.globals["facebookConstatns"] = facebookConstatns
     tmpl = env.get_template("pages/addTodo.html")
-    return tmpl.render()
+    return tmpl.render(isSignedRequest = cherrypy.session.get(facebookConstatns.IS_SIGNED_REQUEST))
     
 #def getMyTodos(todos, friends, statuses, statusid):
 def getMyTodos(todos, statuses, statusid):
-    env.globals["session"] = cherrypy.session
-    env.globals["facebookConstatns"] = facebookConstatns
     tmpl = env.get_template("pages/home.html")    
     #return tmpl.render(todos = todos, friends = friends, statuses = statuses, statusid = statusid)
-    return tmpl.render(todos = todos, statuses = statuses, statusid = statusid)
+    return tmpl.render(todos = todos, statuses = statuses, statusid = statusid,
+        isSignedRequest = cherrypy.session.get(facebookConstatns.IS_SIGNED_REQUEST))
     
 def getSharedWithMeTodos(todos):
     #return getTodoList(todos, None, "Shared With Me")
