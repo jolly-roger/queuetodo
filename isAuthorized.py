@@ -15,6 +15,8 @@ def isAuthorized(f):
                 cherrypy.session[constants.IS_SIGNED_REQUEST] = True
                 break
         
+        cherrypy.log.error(str(cherrypy.session.get(facebookConstatns.IS_SIGNED_REQUEST)))
+        
         if cherrypy.session.get(constants.IS_SIGNED_REQUEST):
             authorization.authorize();
             
