@@ -138,6 +138,10 @@ class queuetodo(object):
         tdl.close()
         
         return json.dumps(todos)
+        
+    @cherrypy.expose
+    def hyperload_txt(self):
+        return "hyperload.txt"
 
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), "queuetodo.conf")
