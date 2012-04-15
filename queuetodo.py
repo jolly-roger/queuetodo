@@ -141,7 +141,7 @@ class queuetodo(object):
         
     @cherrypy.expose
     def hyperload_txt(self):
-        return serve_file(constants.BASE_DIR + "hyperload.txt")
+        return cherrypy.lib.static.serve_file(constants.BASE_DIR + "hyperload.txt")
 
 
 queuetodoconf = os.path.join(os.path.dirname(__file__), "queuetodo.conf")
